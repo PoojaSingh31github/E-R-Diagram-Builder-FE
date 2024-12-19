@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function AboutPage() {
   const [selectedContent, setSelectedContent] = useState('');
+  console.log("sdfghjk")
 
   const handleBoxClick = (content) => {
     setSelectedContent(content);

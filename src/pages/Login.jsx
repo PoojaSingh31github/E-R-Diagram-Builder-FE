@@ -3,6 +3,7 @@ import LoginModal from './LoginModal';
 
 const Login = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    console.log(isModalOpen)
 
     return (
         <div>
