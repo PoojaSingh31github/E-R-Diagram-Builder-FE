@@ -80,6 +80,7 @@ const WhiteSpace = ({ tables }) => {
 
   return (
     <div className="White-space">
+       <ExportButton elementId="whiteBoard" />
       <div
         id="whiteBoard"
         className={`h-[90vh] w-full border ${
@@ -97,7 +98,7 @@ const WhiteSpace = ({ tables }) => {
         </select>
 
         <ReactFlow nodes={nodes} edges={edges} onConnect={onConnect}>
-          <ExportButton elementId="whiteBoard" />
+         
           <Controls />
           <MiniMap
             style={{
