@@ -19,6 +19,7 @@ import {
   RectangleNode,
   SquareNode,
 } from "../Another/Shape";
+// import Sidebar from "../Sidebar/Sidebar.jsx";
 
 const initialEdges = [];
 const initialNodes = [];
@@ -100,59 +101,74 @@ const WhiteSpace = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-200">
-    <div className="w-1/5 p-4 bg-gray-800 text-white">
+    <div className="flex h-screen pt-32 pb-20 bg-gray-800">
+
+<div className="w-full md:w-1/5 p-4 bg-gray-800 text-white">
       <h2 className="text-xl font-bold mb-4">Tools</h2>
+      <ExportButton elementId="whiteBoard" />
+      
       <button
-        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full mt-5 py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
         onClick={() => addNode("rectangle")}
       >
-        Add Rectangle
+        <i className="fas fa-border-all"></i>
+        <span className="hidden md:inline ml-2">Add Rectangle</span>
       </button>
+
       <button
-        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
         onClick={() => addNode("parallelogram")}
       >
-        Add Parallelogram
+        <i className="fas fa-draw-polygon"></i>
+        <span className="hidden md:inline ml-2">Add Parallelogram</span>
       </button>
+
       <button
-        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
         onClick={() => addNode("circle")}
       >
-        Add Circle
+        <i className="fas fa-circle"></i>
+        <span className="hidden md:inline ml-2">Add Circle</span>
       </button>
+
       <button
-        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
         onClick={() => addNode("square")}
       >
-        Add Square
+        <i className="fas fa-square"></i>
+        <span className="hidden md:inline ml-2">Add Square</span>
       </button>
+
       <button
-        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
         onClick={() => addNode("diamond")}
       >
-        Add Diamond
+        <i className="fas fa-gem"></i>
+        <span className="hidden md:inline ml-2">Add Diamond</span>
       </button>
+
       {selectedNodeId && (
         <>
           <button
-            className="block w-full py-2 mb-2 bg-red-500 rounded hover:bg-red-600"
+            className="flex items-center justify-center w-full py-2 mb-2 bg-red-500 rounded hover:bg-red-600"
             onClick={deleteNode}
           >
-            Delete Node
+            <i className="fas fa-trash-alt"></i>
+            <span className="hidden md:inline ml-2">Delete Node</span>
           </button>
           <input
-            className="block w-full p-2 mb-2 border rounded"
+            className="block w-full p-2 mb-2 border rounded text-gray-900"
             type="text"
             value={newLabel}
             onChange={handleLabelChange}
             placeholder="New Label"
           />
           <button
-            className="block w-full py-2 bg-green-500 rounded hover:bg-green-600"
+            className="flex items-center justify-center w-full py-2 bg-green-500 rounded hover:bg-green-600"
             onClick={applyLabelChange}
           >
-            Change Label
+            <i className="fas fa-edit"></i>
+            <span className="hidden md:inline ml-2">Change Label</span>
           </button>
         </>
       )}
@@ -170,13 +186,13 @@ const WhiteSpace = () => {
         onNodeClick={(_, node) => setSelectedNodeId(node.id)}
         nodeTypes={nodeTypes}
       >
-        <ExportButton elementId="whiteBoard" />
+        
+        <ColorModeFlow colorMode={colorMode} setColorMode={setColorMode} />
         <Controls />
         <MiniMap
           style={{ backgroundColor: colorMode === "dark" ? "#333" : "gray" }}
         />
         <Background />
-        <ColorModeFlow colorMode={colorMode} setColorMode={setColorMode} />
       </ReactFlow>
     </div>
   </div>

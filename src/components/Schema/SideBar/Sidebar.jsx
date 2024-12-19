@@ -1,5 +1,7 @@
 // Sidebar.js
 import React from 'react';
+import "./Sidebar.css";
+import { ExportButton } from '../../ExportButton/ExportButton';
 
 function Sidebar({
   tables,
@@ -23,6 +25,7 @@ function Sidebar({
 }) {
   return (
     <div className="sidebar">
+        <ExportButton elementId="whiteBoard" />
       <h2>Tables</h2>
       <button className="new-table-btn" onClick={addTable}>
         + New table
