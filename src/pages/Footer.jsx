@@ -2,39 +2,75 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-teal-600 text-white py-6 mt-16">
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Company</h3>
-          <ul className="space-y-2">
-            <li>About Us</li>
-            <li>Careers</li>
-            <li>Contact</li>
-          </ul>
+    <footer className="bg-gray-900 text-white py-10">
+        <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 className="text-lg font-semibold mb-4">Get started</h3>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-gray-400">Pricing</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Individual</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Team</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Enterprise</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Contact sales</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-lg font-semibold mb-4">Product</h3>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-gray-400">Lucidchart overview</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Lucidscale</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Integrations</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Security</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-lg font-semibold mb-4">Resources</h3>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-gray-400">Training labs</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Blog</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Webinars</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Help center</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Case studies</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Diagrams</a></li>
+                        <li><a href="#" className="hover:text-gray-400">User community</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Newsletter</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Partners</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="text-lg font-semibold mb-4">Company</h3>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-gray-400">About us</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Leadership</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Newsroom</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Careers</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Accessibility</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Mission</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="mt-10 flex flex-col md:flex-row items-center justify-between text-gray-400">
+                <div className="text-sm mb-4 md:mb-0">© 2024 Lucid Software Inc.</div>
+                <div className="flex space-x-6">
+                    <a href="#" className="hover:text-white">Privacy</a>
+                    <a href="#" className="hover:text-white">Legal</a>
+                    <a href="#" className="hover:text-white">Cookie privacy choices</a>
+                    <a href="#" className="hover:text-white">Cookie policy</a>
+                </div>
+                <div className="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" className="hover:text-white">LinkedIn</a>
+                    <a href="#" className="hover:text-white">Twitter</a>
+                    <a href="#" className="hover:text-white">Instagram</a>
+                    <a href="#" className="hover:text-white">YouTube</a>
+                </div>
+            </div>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Resources</h3>
-          <ul className="space-y-2">
-            <li>Documentation</li>
-            <li>Blog</li>
-            <li>API Reference</li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
-          <ul className="space-y-2">
-            <li>Twitter</li>
-            <li>LinkedIn</li>
-            <li>GitHub</li>
-          </ul>
-        </div>
-      </div>
-      <div className="mt-8 text-center text-sm">
-        <p>&copy; 2024 ER Diagram Builder. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
   )
 }
 

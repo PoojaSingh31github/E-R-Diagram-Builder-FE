@@ -100,94 +100,86 @@ const WhiteSpace = () => {
   };
 
   return (
-    <div className="White-space flex flex-col items-center">
-      <div
-        className="sidebar p-4 bg-gray-200 shadow-md rounded-lg w-full sm:w-1/3 lg:w-1/4 flex flex-col space-y-2"
-        style={{ position: "relative", zIndex: 10 }}
+    <div className="flex h-screen bg-gray-200">
+    <div className="w-1/5 p-4 bg-gray-800 text-white">
+      <h2 className="text-xl font-bold mb-4">Tools</h2>
+      <button
+        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        onClick={() => addNode("rectangle")}
       >
-        <h1 className="text-lg font-bold font-sans">Shapes / Tools</h1>
-        <button
-          onClick={() => addNode("rectangle")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Add Rectangle
-        </button>
-        <button
-          onClick={() => addNode("parallelogram")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Add Parallelogram
-        </button>
-        <button
-          onClick={() => addNode("circle")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Add Circle
-        </button>
-        <button
-          onClick={() => addNode("square")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Add Square
-        </button>
-        <button
-          onClick={() => addNode("diamond")}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Add Diamond
-        </button>
-
-        {selectedNodeId && (
-          <>
-            <button
-              onClick={deleteNode}
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            >
-              Delete Node
-            </button>
-            <input
-              type="text"
-              value={newLabel}
-              onChange={handleLabelChange}
-              placeholder="New Label"
-              className="border rounded p-2"
-            />
-            <button
-              onClick={applyLabelChange}
-              className="bg-gray-800 text-white px-4 py-2 rounded"
-            >
-              Change Label
-            </button>
-          </>
-        )}
-      </div>
-      <div
-        id="whiteBoard"
-        className={`w-full sm:w-3/4 h-[90vh] border ${
-          colorMode === "dark" ? "bg-gray-800" : "bg-white"
-        }`}
+        Add Rectangle
+      </button>
+      <button
+        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        onClick={() => addNode("parallelogram")}
       >
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
-          onNodeClick={(_, node) => setSelectedNodeId(node.id)}
-          nodeTypes={nodeTypes}
-        >
-          <ExportButton elementId="whiteBoard" />
-          <Controls />
-          <MiniMap
-            style={{
-              backgroundColor: colorMode === "dark" ? "#333" : "gray",
-            }}
+        Add Parallelogram
+      </button>
+      <button
+        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        onClick={() => addNode("circle")}
+      >
+        Add Circle
+      </button>
+      <button
+        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        onClick={() => addNode("square")}
+      >
+        Add Square
+      </button>
+      <button
+        className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        onClick={() => addNode("diamond")}
+      >
+        Add Diamond
+      </button>
+      {selectedNodeId && (
+        <>
+          <button
+            className="block w-full py-2 mb-2 bg-red-500 rounded hover:bg-red-600"
+            onClick={deleteNode}
+          >
+            Delete Node
+          </button>
+          <input
+            className="block w-full p-2 mb-2 border rounded"
+            type="text"
+            value={newLabel}
+            onChange={handleLabelChange}
+            placeholder="New Label"
           />
-          <Background />
-          <ColorModeFlow colorMode={colorMode} setColorMode={setColorMode} />
-        </ReactFlow>
-      </div>
+          <button
+            className="block w-full py-2 bg-green-500 rounded hover:bg-green-600"
+            onClick={applyLabelChange}
+          >
+            Change Label
+          </button>
+        </>
+      )}
     </div>
+    <div
+      id="whiteBoard"
+      className={`flex-1 border ${colorMode === "dark" ? "bg-gray-900" : "bg-white"}`}
+    >
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        onNodeClick={(_, node) => setSelectedNodeId(node.id)}
+        nodeTypes={nodeTypes}
+      >
+        <ExportButton elementId="whiteBoard" />
+        <Controls />
+        <MiniMap
+          style={{ backgroundColor: colorMode === "dark" ? "#333" : "gray" }}
+        />
+        <Background />
+        <ColorModeFlow colorMode={colorMode} setColorMode={setColorMode} />
+      </ReactFlow>
+    </div>
+  </div>
   );
 };
 

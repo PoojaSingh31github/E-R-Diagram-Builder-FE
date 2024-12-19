@@ -1,101 +1,142 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+
 const Home = () => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft += 1;
+      }
+    }, 30); 
+
+    return () => clearInterval(scrollInterval);
+  }, []);
+
+  const items = [
+    {
+      img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/ERDiagramsInDBMS_1.png",
+      title: "Basic ER Diagram",
+      desc: "A simple ER diagram showcasing the relationship between entities in a database."
+    },
+    {
+      img: "https://cdn.nulab.com/learn-wp/app/uploads/2022/02/21192557/er-diagram-for-hospital-management-system.webp",
+      title: "Advanced ER Diagram",
+      desc: "An advanced ER diagram illustrating complex relationships with cardinalities."
+    },
+    {
+      img: "https://images.wondershare.com/edrawmax/article2023/er-diagram-examples/er-diagram-16.png",
+      title: "Collaborative ER Diagram",
+      desc: "Collaboratively designed ER diagrams for large team projects."
+    },
+    {
+      img: "https://www.researchgate.net/publication/315666255/figure/fig1/AS:476711717478400@1490668339611/Sample-ERD-diagram-of-a-typical-order-processing-system.png",
+      title: "User and Orders ER Diagram",
+      desc: "A detailed ER diagram representing the relationship between Users and Orders."
+    },
+    {
+      img: "https://landing.moqups.com/img/templates/diagrams/erd/ecommerce-database-diagram.png",
+      title: "E-commerce ER Diagram",
+      desc: "ER diagram for an e-commerce website illustrating user accounts, products, and orders."
+    },
+    {
+      img: "https://cdn.venngage.com/template/thumbnail/full/85f9dc7c-c79d-4657-863f-b1fc701ef62f.webp",
+      title: "HR Management ER Diagram",
+      desc: "A comprehensive ER diagram for managing human resources and employees within an organization."
+    },
+    {
+      img: "https://www.slideteam.net/media/catalog/product/cache/1280x720/d/a/database_relationship_diagram_for_inventory_management_system_slide01.jpg",
+      title: "Sales and Inventory ER Diagram",
+      desc: "This ER diagram represents the relationship between sales and inventory management systems."
+    },
+    {
+      img: "https://images.doclify.net/gleek-web/d/b2c44bcf-edc7-46e4-a7a7-9b672e5fc11b.png",
+      title: "Library Management ER Diagram",
+      desc: "A diagram representing the entities involved in a library management system such as books, members, and transactions."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
-      
-      {/* Main Content */}
       <main className="flex-grow bg-gray-100 py-8">
         <div className="container mx-auto px-6 text-center">
           {/* Welcome Section */}
-          <div className="grid lg:grid-cols-2 gap-8 px-8 py-16 max-w-7xl mx-auto">
-    <div className="flex flex-col justify-center">
-      <h1 className="text-4xl font-bold text-gray-800 leading-tight mb-6">
-        Diagramming powered by intelligence
-      </h1>
-      <p className="text-gray-600 text-lg mb-6">
-        Create next-generation diagrams with AI, data, and automation in Lucidchart. Understand and optimize every system and process.
-      </p>
-      <Link to={"/whiteSpace/path"} className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md">
-        start designing
-      </Link>
-      <Link to={"/template/path"} className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md">
-        sample designing
-      </Link>
-      <Link to={"/schema/path"} className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md">
-        schema designing
-      </Link>
-    </div>
+          <div className="relative flex flex-col lg:flex-row items-center justify-between px-8 py-16 bg-gray-50 overflow-hidden">
+            {/* Background Grid */}
+            <div className="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] opacity-50"></div>
 
-    <div className="relative bg-gray-100 rounded-md shadow-md overflow-hidden">
-      <img src="your-placeholder-image.jpg" alt="Diagram Preview" className="w-full"/>
-    </div>
-  </div>
-          </div>
-          {/* ER Diagram Images Section */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {[{
-              img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/ERDiagramsInDBMS_1.png",
-              title: "Basic ER Diagram",
-              desc: "A simple ER diagram showcasing the relationship between entities in a database.",
-            },
-            {
-              img: "https://cdn.nulab.com/learn-wp/app/uploads/2022/02/21192557/er-diagram-for-hospital-management-system.webp",
-              title: "Advanced ER Diagram",
-              desc: "An advanced ER diagram illustrating complex relationships with cardinalities.",
-            },
-            {
-              img: "https://images.wondershare.com/edrawmax/article2023/er-diagram-examples/er-diagram-16.png",
-              title: "Collaborative ER Diagram",
-              desc: "Collaboratively designed ER diagrams for large team projects.",
-            },
-            {
-              img: "https://www.researchgate.net/publication/315666255/figure/fig1/AS:476711717478400@1490668339611/Sample-ERD-diagram-of-a-typical-order-processing-system.png",
-              title: "User and Orders ER Diagram",
-              desc: "A detailed ER diagram representing the relationship between Users and Orders.",
-            },
-            {
-              img: "https://landing.moqups.com/img/templates/diagrams/erd/ecommerce-database-diagram.png",
-              title: "E-commerce ER Diagram",
-              desc: "ER diagram for an e-commerce website illustrating user accounts, products, and orders.",
-            },
-            {
-              img: "https://cdn.venngage.com/template/thumbnail/full/85f9dc7c-c79d-4657-863f-b1fc701ef62f.webp",
-              title: "HR Management ER Diagram",
-              desc: "A comprehensive ER diagram for managing human resources and employees within an organization.",
-            },
-            {
-              img: "https://www.slideteam.net/media/catalog/product/cache/1280x720/d/a/database_relationship_diagram_for_inventory_management_system_slide01.jpg",
-              title: "Sales and Inventory ER Diagram",
-              desc: "This ER diagram represents the relationship between sales and inventory management systems.",
-            },
-            {
-              img: "https://images.doclify.net/gleek-web/d/b2c44bcf-edc7-46e4-a7a7-9b672e5fc11b.png",
-              title: "Library Management ER Diagram",
-              desc: "A diagram representing the entities involved in a library management system such as books, members, and transactions.",
-            },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-64 object-cover transition-all duration-300 transform hover:scale-110"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
-                  <p className="text-gray-600 mt-2">{item.desc}</p>
-                </div>
+            {/* Text Content */}
+            <div className="relative z-10 flex flex-col items-start lg:w-1/2">
+              <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                Welcome to the EntityCraft Workspace
+              </h1>
+              <p className="text-gray-600 text-lg mb-8">
+                A single, AI-powered collaboration platform that helps teams move faster from idea to outcome.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  to="/whiteSpace/path"
+                  className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md shadow-md hover:bg-blue-700 transition"
+                >
+                  Start Designing
+                </Link>
+                <Link
+                  to="/template/path"
+                  className="px-6 py-3 bg-gray-200 text-gray-800 text-lg font-semibold rounded-md shadow-md hover:bg-gray-300 transition"
+                >
+                  Sample Designing
+                </Link>
+                <Link
+                  to="/schema/path"
+                  className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md shadow-md hover:bg-blue-700 transition"
+                >
+                  Schema Designing
+                </Link>
               </div>
-            ))}
+            </div>
+
+            {/* Video Content */}
+            <div className="relative z-10 lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
+              <video
+                className="w-full max-w-lg h-auto rounded-lg shadow-lg"
+                controls
+                poster="your-placeholder-image.jpg"
+              >
+                <source src="your-video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
+
+
+          {/* ER Diagram Images Section */}
+          <div className="mb-10">
+            <h2 className="text-3xl font-semibold text-gray-800 mb-6">Explore ER Diagrams</h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative bg-white rounded-lg shadow-lg overflow-hidden w-80 group"
+                >
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-64 object-cover transition-all duration-300 transform group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-xl font-semibold text-white text-center">{item.title}</h3>
+                    <p className="text-gray-200 mt-2 text-center text-sm px-4">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
-      {/* Footer */}
-      
+
     </div>
   );
 };
+
 export default Home;
