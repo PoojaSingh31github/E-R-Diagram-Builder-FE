@@ -1,5 +1,6 @@
 body{
     width:100%;
+    background-color: #F9E6CF;
 }
 .mainEditer{
     display: flex;
@@ -9,7 +10,7 @@ body{
 }
 .sidebar {
     width: 300px;
-    background-color: #f4f5fa;
+    background-color: #F9E6CF;
     padding: 20px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
 }

@@ -79,16 +79,16 @@ const WhiteSpace = ({ tables }) => {
   };
 
   return (
-    <div className="White-space">
-       <ExportButton elementId="whiteBoard" />
+    <div className="White-space mb-32">
+       {/* <ExportButton elementId="whiteBoard" /> */}
       <div
         id="whiteBoard"
-        className={`h-[90vh] w-full border ${
+        className={`h-[90vh] mb-32 w-full border ${
           colorMode === "dark" ? "bg-gray-800" : "bg-white"
         }`}
       >
         <select
-          className="absolute top-2 left-2 z-10 w-48 p-2 border rounded-md bg-white text-black"
+          className="absolute top-20 left-2 z-10 w-48 p-2 border rounded-md bg-white text-black"
           onChange={(e) => setRelationshipType(e.target.value)}
           value={relationshipType}
         >

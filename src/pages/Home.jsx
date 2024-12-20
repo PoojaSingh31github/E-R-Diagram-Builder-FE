@@ -58,11 +58,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow bg-gray-100 py-8">
+    <div className="flex flex-col min-h-screen bg-[#F9E6CF]">
+      <main className="flex-grow py-8">
         <div className="container mx-auto px-6 text-center">
           {/* Welcome Section */}
-          <div className="relative flex flex-col lg:flex-row items-center justify-between px-8 py-16 bg-gray-50 overflow-hidden">
+          <div className="relative flex flex-col lg:flex-row items-center justify-between px-8 py-16 overflow-hidden">
             {/* Background Grid */}
             <div className="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] opacity-50"></div>
 
@@ -124,9 +124,9 @@ const Home = () => {
                     alt={item.title}
                     className="w-full h-64 object-cover transition-all duration-300 transform group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="text-xl font-semibold text-white text-center">{item.title}</h3>
-                    <p className="text-gray-200 mt-2 text-center text-sm px-4">{item.desc}</p>
+                  <div className="absolute inset-0 bg-[#995474] bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h3 className="text-xl font-semibold text-black text-center">{item.title}</h3>
+                    <p className="text-gray-800 mt-2 text-center text-lg px-4">{item.desc}</p>
                   </div>
                 </div>
               ))}

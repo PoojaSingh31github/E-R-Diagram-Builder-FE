@@ -101,14 +101,15 @@ const WhiteSpace = () => {
   };
 
   return (
-    <div className="flex h-screen pt-32 pb-20 bg-gray-800">
+    <div className="flex h-screen pt-32 pb-20 bg-[#F9E6CF]">
 
-<div className="w-full md:w-1/5 p-4 bg-gray-800 text-white">
+<div className="w-full md:w-1/5 p-4 bg-[#F9E6CF] text-gray-800 ">
       <h2 className="text-xl font-bold mb-4">Tools</h2>
       <ExportButton elementId="whiteBoard" />
+
       
       <button
-        className="flex items-center justify-center w-full mt-5 py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center  justify-center w-full mt-5 py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("rectangle")}
       >
         <i className="fas fa-border-all"></i>
