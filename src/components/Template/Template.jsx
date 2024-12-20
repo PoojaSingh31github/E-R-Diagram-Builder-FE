@@ -401,35 +401,35 @@ const Template = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-200">
-      <div className="w-1/5 p-4 bg-gray-800 text-white">
-        <h2 className="text-xl font-bold mb-4">Tools</h2>
+    <div className="flex h-screen pt-40 pb-16">
+      <div className="w-1/5 p-4 ">
+        <h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
         <button
-          className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("rectangle")}
         >
           Add Rectangle
         </button>
         <button
-          className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("parallelogram")}
         >
           Add Parallelogram
         </button>
         <button
-          className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("circle")}
         >
           Add Circle
         </button>
         <button
-          className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("square")}
         >
           Add Square
         </button>
         <button
-          className="block w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("diamond")}
         >
           Add Diamond

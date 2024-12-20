@@ -9,7 +9,6 @@ import {
   EdgeText,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
-import { ExportButton } from "../../ExportButton/ExportButton";
 import ColorModeFlow from "../../ColorMode/ColorModeFlow";
 
 
@@ -84,11 +83,11 @@ const WhiteSpace = ({ tables }) => {
       <div
         id="whiteBoard"
         className={`h-[90vh] mb-32 w-full border ${
-          colorMode === "dark" ? "bg-gray-800" : "bg-white"
+          colorMode === "dark" ? "bg-gray-900" : "bg-[#f8d5a1]"
         }`}
       >
         <select
-          className="absolute top-20 left-2 z-10 w-48 p-2 border rounded-md bg-white text-black"
+          className="absolute top-32 left-16 w-48 p-2 border rounded-md bg-[#f8d5a1] text-black"
           onChange={(e) => setRelationshipType(e.target.value)}
           value={relationshipType}
         >
@@ -115,7 +114,7 @@ const WhiteSpace = ({ tables }) => {
 
 const TableNode = ({ label }) => (
   <div
-    className="p-0 font-bold text-center text-sm text-white"
+    className="p-3 font-bold text-center text-sm text-white"
   >
     <h3>{label}</h3>
   </div>
@@ -125,7 +124,7 @@ const ColumnNode = ({ label }) => (
   <div
     className="p-0 text-center rounded bg-white m-0"
   >
-    <p className="text-xs m-0">{label}</p>
+    <p className="text-lg p-2">{label}</p>
   </div>
 );
 

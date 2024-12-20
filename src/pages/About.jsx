@@ -10,29 +10,29 @@ function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between bg-[#F9E6CF] text-gray-900">
       <main className="flex-grow">
-        <div className="min-h-screen flex flex-col items-center bg-gradient-to-r from-blue-100 via-teal-100 to-lime-100">
-          <header className="text-center mb-8 p-8 bg-gradient-to-r from-teal-400 to-blue-500 text-white shadow-lg rounded-lg hover:shadow-2xl transition duration-300 transform hover:scale-105 ease-in-out mt-24">
-            <h1 className="text-4xl md:text-5xl font-extrabold hover:text-yellow-300 transition duration-300 font-serif tracking-widest">About ER Diagram Builder</h1>
-            <p className="mt-4 text-lg md:text-xl text-white hover:text-gray-100 font-light leading-relaxed">
+        <div className="min-h-screen flex flex-col items-center">
+          <section className="text-2xl font-bold text-center mb-8 p-8 text-[#DA498D] shadow-lg rounded-lg hover:shadow-2xl mt-24">
+            <h1 className="hover:text-[#471953] text-[#DA498D] font-serif tracking-widest">About ER Diagram Builder</h1>
+            <p className="mt-4 md:text-x font-light leading-relaxed">
               ER Diagram Builder simplifies creating, editing, and sharing Entity-Relationship diagrams. It bridges complex database modeling and user-friendly design, catering to both beginners and experts.
             </p>
-            <p className="mt-4 text-lg md:text-xl text-white hover:text-gray-100 font-light leading-relaxed">
+            <p className="mt-4 md:text-x font-light leading-relaxed">
               Features like real-time collaboration, advanced importing/exporting, and responsive design empower seamless teamwork and efficient database visualization.
             </p>
-          </header>
+          </section>
 
-          <section className="max-w-6xl w-full bg-white shadow-lg rounded-lg p-8 hover:shadow-2xl transition duration-300 transform hover:scale-105 ease-in-out">
+          <section className="max-w-6xl w-full bg-white shadow-lg rounded-lg p-8 hover:shadow-2xl ">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
-                className="p-6 bg-gradient-to-r from-cyan-500 to-teal-500 text-white text-center rounded-xl shadow-md hover:shadow-lg cursor-pointer hover:scale-105 transition-transform ease-in-out"
+                className="p-6 bg-gradient-to-r from-cyan-500 to-teal-500 text-center rounded-xl shadow-md hover:shadow-lg cursor-pointer "
                 onClick={() => handleBoxClick('Key Features')}
               >
                 <h2 className="text-2xl font-bold">Key Features</h2>
               </div>
               <div
-                className="p-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-center rounded-xl shadow-md hover:shadow-lg cursor-pointer hover:scale-105 transition-transform ease-in-out"
+                className="p-6 bg-gradient-to-r from-pink-500 to-rose-500 text-center rounded-xl shadow-md hover:shadow-lg cursor-pointer "
                 onClick={() => handleBoxClick('Advanced Capabilities')}
               >
                 <h2 className="text-2xl font-bold">Advanced Capabilities</h2>

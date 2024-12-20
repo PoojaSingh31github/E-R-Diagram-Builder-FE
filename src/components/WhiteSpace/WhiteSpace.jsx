@@ -104,7 +104,7 @@ const WhiteSpace = () => {
     <div className="flex h-screen pt-32 pb-20 bg-[#F9E6CF]">
 
 <div className="w-full md:w-1/5 p-4 bg-[#F9E6CF] text-gray-800 ">
-      <h2 className="text-xl font-bold mb-4">Tools</h2>
+<h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
       <ExportButton elementId="whiteBoard" />
 
       
@@ -117,7 +117,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("parallelogram")}
       >
         <i className="fas fa-draw-polygon"></i>
@@ -125,7 +125,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("circle")}
       >
         <i className="fas fa-circle"></i>
@@ -133,7 +133,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("square")}
       >
         <i className="fas fa-square"></i>
@@ -141,7 +141,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-blue-500 rounded hover:bg-blue-600"
+        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("diamond")}
       >
         <i className="fas fa-gem"></i>
