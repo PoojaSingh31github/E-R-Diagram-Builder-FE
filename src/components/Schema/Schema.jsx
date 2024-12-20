@@ -25,7 +25,7 @@ function Schema() {
   } = useSidebarData();
 
   return (
-    <div className="flex h-screen pt-32 mb-32 bg-[#F9E6CF]">
+    <div className="flex h-screen pt-40 mb-32 bg-[#F9E6CF]">
       <Sidebar
         tables={tables}
         setTables={setTables}

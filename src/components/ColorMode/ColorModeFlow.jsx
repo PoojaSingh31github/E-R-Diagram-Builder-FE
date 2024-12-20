@@ -10,7 +10,7 @@ const ColorModeFlow = ({ colorMode, setColorMode }) => {
   return (
     <div>
       <Panel position="top-right">
-        <select onChange={onChange} data-testid="colormode-select" className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded">
+        <select onChange={onChange} data-testid="colormode-select" className="bg-[#7c294f] hover:bg-[#6a2343] text-white text-sm font-medium px-4 py-2 rounded">
           <option value="dark">dark</option>
           <option value="light">light</option>
         </select>

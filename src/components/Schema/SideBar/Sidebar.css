@@ -8,32 +8,6 @@ body{
 .White-space{
     flex: 1;
 }
-.sidebar {
-    width: 300px;
-    background-color: #F9E6CF;
-    padding: 20px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-    color: #333;
-}
-
-.new-table-btn {
-    background-color: #36c4f1;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.table-list {
-    margin-top: 10px;
-}
 
 .table-item {
     background-color: #e6e8f1;
@@ -112,7 +86,7 @@ h2 {
 .column-type {
     width: 45%;
     margin-left: 4px;
-    padding: 5px;
+    padding: 5px 0;
     background-color: #fff;
     border: none;
     border-radius: 3px;
