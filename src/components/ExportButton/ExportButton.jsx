@@ -42,13 +42,13 @@ export const ExportButton = ({ elementId }) => {
     <div className="flex space-x-4 mt-5 z-10">
       <button
         onClick={exportToPdf}
-        className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded"
+        className="bg-[#7c294f] hover:bg-[#6a2343] text-white text-sm font-medium px-4 py-2 rounded-md"
       >
         Export as PDF
       </button>
       <button
         onClick={exportToImage}
-        className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded"
+        className="bg-[#7c294f] hover:bg-[#6a2343] text-white text-sm font-medium px-4 py-2 rounded-md"
       >
         Export as Image
       </button>
