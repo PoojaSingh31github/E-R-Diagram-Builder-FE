@@ -131,9 +131,10 @@ npm run dev
 
 
 ## Credentials
-login credentials 
-email - test1@gmail.com
-password - 123456
+### login credentials 
+- **email** - test1@gmail.com
+- **Password** - 123456
+
 ## API Endpoints
 
 ### User Authentication
