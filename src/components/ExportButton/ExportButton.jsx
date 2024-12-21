@@ -39,18 +39,20 @@ export const ExportButton = ({ elementId }) => {
   };
 
   return (
-    <div className="flex space-x-4 mt-5 z-10">
+    <div className="flex space-x-2 mt-5 z-10">
       <button
         onClick={exportToPdf}
-        className="bg-[#7c294f] hover:bg-[#6a2343] text-white text-sm font-medium px-4 py-2 rounded-md"
+        className="bg-[#7c294f] hover:bg-[#6a2343] text-white  px-4 py-2 rounded-md"
       >
-        Export as PDF
+       <i className="fas fa-file-pdf"></i>
+       <p>Export as PDF</p>
       </button>
       <button
         onClick={exportToImage}
-        className="bg-[#7c294f] hover:bg-[#6a2343] text-white text-sm font-medium px-4 py-2 rounded-md"
+        className="bg-[#7c294f] hover:bg-[#6a2343] text-white  px-4 py-2 rounded-md"
       >
-        Export as Image
+        <i className="fas fa-image"></i>
+        <p>Export as Image</p>
       </button>
     </div>
   );

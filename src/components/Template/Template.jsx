@@ -401,43 +401,54 @@ const Template = () => {
   };
 
   return (
-    <div className="flex h-screen pt-40 pb-16">
+    <div className="flex h-screen pt-40 pb-40">
       <div className="w-1/5 p-4 ">
         <h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
+        <ExportButton elementId="whiteBoard" />
         <button
-          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="hidden md:block w-full py-2 mt-3 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("rectangle")}
         >
-          Add Rectangle
+         Add Rectangle
         </button>
+          <i className="fas fa-border-all md:hidden text-[#a33669]" onClick={() => addNode("rectangle")}></i>
+        
         <button
-          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("parallelogram")}
         >
-          Add Parallelogram
+           Add Parallelogram
         </button>
+           <i className="fas fa-draw-polygon md:hidden text-[#a33669]" onClick={() => addNode("parallelogram")}></i>
+        
         <button
-          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("circle")}
         >
           Add Circle
         </button>
+        <i className="md:hidden text-[#a33669] fas fa-circle" onClick={() => addNode("circle")}></i>
+
         <button
-          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("square")}
         >
           Add Square
         </button>
+        <i className="md:hidden text-[#a33669] fas fa-square"  onClick={() => addNode("square")}></i>
+
         <button
-          className="block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
           onClick={() => addNode("diamond")}
         >
           Add Diamond
         </button>
+        <i className="md:hidden text-[#a33669] fas fa-gem" onClick={() => addNode("diamond")}></i>
+
         {selectedNodeId && (
           <>
             <button
-              className="block w-full py-2 mb-2 bg-red-500 rounded hover:bg-red-600"
+              className="block w-full py-2 mb-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
               onClick={deleteNode}
             >
               Delete Node
@@ -450,7 +461,7 @@ const Template = () => {
               placeholder="New Label"
             />
             <button
-              className="block w-full py-2 bg-green-500 rounded hover:bg-green-600"
+              className="block w-full py-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
               onClick={applyLabelChange}
             >
               Change Label
@@ -460,7 +471,7 @@ const Template = () => {
       </div>
       <div
         id="whiteBoard"
-        className={`flex-1 border ${colorMode === "dark" ? "bg-gray-900" : "bg-white"}`}
+        className={`flex-1 h-[75vh] border ${colorMode === "dark" ? "bg-gray-900" : "bg-white"}`}
       >
         <ReactFlow
           nodes={nodes}
@@ -471,7 +482,7 @@ const Template = () => {
           onNodeClick={(_, node) => setSelectedNodeId(node.id)}
           nodeTypes={nodeTypes}
         >
-          <ExportButton elementId="whiteBoard" />
+          
           <Controls />
           <MiniMap
             style={{ backgroundColor: colorMode === "dark" ? "#333" : "gray" }}
