@@ -106,26 +106,27 @@ npm install
 npm run dev
 ```
 
-## screenshots
-- Home page
+## Screenshots
+
+### Home Page
 ![image](https://github.com/user-attachments/assets/2a7d9b71-ec82-4e15-a871-feb340ccde0a)
 
-- Login page 
+### Login Page
 ![image](https://github.com/user-attachments/assets/1a809ca3-38bb-41c7-b96f-c70091565d60)
 
-- ER diagram Template Page
+### ER Diagram Template Page
 ![image](https://github.com/user-attachments/assets/8a0b4dac-a81e-4950-adad-b6358be49af4)
 
-- Schema Page
+### Schema Page
 ![image](https://github.com/user-attachments/assets/95926dc2-5841-4533-9374-347fdaec8ec3)
 
-- Home page phone
+### Home Page (Phone)
 ![image](https://github.com/user-attachments/assets/5444f577-fc94-4d26-b4c7-cfe91d5dd157)
 
-- Schema Page Phone 
+### Schema Page (Phone)
 ![image](https://github.com/user-attachments/assets/d7d8dc62-df2f-4648-8d8d-b028d82503f9)
 
-- ER diagram page Phone
+### ER Diagram Page (Phone)
 ![image](https://github.com/user-attachments/assets/530d0872-076c-44c7-9048-f0e2c08320cc)
 
 
@@ -133,29 +134,31 @@ npm run dev
 login credentials 
 email - test1@gmail.com
 password - 123456
-
 ## API Endpoints
-- User Authentication
-    POST /users/login - User login.
-    POST /users/signup - User signup.
-    GET /users/getUser - Get user details.
-- Project Management
-    POST /project/ - Create a new project.
-    GET /project/getProject/{id} - Get project by ID.
-    PUT /project/updateProject/{id} - Update project by ID.
-    DELETE /project/deleteProject/{id} - Delete project by ID.
-    GET /project/getAllProjects - Retrieve all projects.
+
+### User Authentication
+- **POST** `/users/login` - User login.
+- **POST** `/users/signup` - User signup.
+- **GET** `/users/getUser` - Get user details.
+
+### Project Management
+- **POST** `/project/` - Create a new project.
+- **GET** `/project/getProject/{id}` - Get project by ID.
+- **PUT** `/project/updateProject/{id}` - Update project by ID.
+- **DELETE** `/project/deleteProject/{id}` - Delete project by ID.
+- **GET** `/project/getAllProjects` - Retrieve all projects.
+
+---
 
 ## Technology Stack
-- Frontend:
-    vite
-    context-API
-    xyflow library
-    CSS / Tailwind CSS (for styling)
 
-- Backend:
-    Node.js
-    Express.js
-    MongoDB (for data storage)
-    Other Libraries/Modules:
+### Frontend:
+- **Vite**
+- **Context-API**
+- **Xyflow library**
+- **CSS / Tailwind CSS** (for styling)
 
+### Backend:
+- **Node.js**
+- **Express.js**
+- **MongoDB** (for data storage)
