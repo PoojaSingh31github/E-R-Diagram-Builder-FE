@@ -8,21 +8,24 @@ import Template from "../components/Template/Template";
 import Schema from "../components/schema/Schema";
 import Flow from "../components/Template/SchemaTemplate";
 import TeamAbout from "./TeamAbout";
+import SignupCom from "../components/Auth/Register";
+import LoginCom from "../components/Auth/Login";
 
 const AllRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/teamAbout" element={<TeamAbout/>}/>
-        <Route path="/temp" element={<Flow/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<SignupCom />} />
+        <Route path="/login" element={<LoginCom />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/teamAbout" element={<TeamAbout />} />
+        <Route path="/temp" element={<Flow />} />
         <Route
           path="/whiteSpace/path"
           element={
             // <PrivateRoute>
-              <WhiteSpace />
+            <WhiteSpace />
             // </PrivateRoute>
           }
         />
@@ -30,7 +33,7 @@ const AllRoutes = () => {
           path="/whiteSpace/template/path"
           element={
             // <PrivateRoute>
-              <Template />
+            <Template />
             // </PrivateRoute>
           }
         />
@@ -38,7 +41,7 @@ const AllRoutes = () => {
           path="/schema/path"
           element={
             // <PrivateRoute>
-              <Schema />
+            <Schema />
             // </PrivateRoute>
           }
         />
@@ -46,7 +49,7 @@ const AllRoutes = () => {
           path="/schema/template/path"
           element={
             // <PrivateRoute>
-              <Flow />
+            <Flow />
             // </PrivateRoute>
           }
         />
