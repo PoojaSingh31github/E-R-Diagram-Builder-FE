@@ -19,8 +19,8 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Product</h3>
                     <ul className="space-y-2">
-                        <li><a href="#" className="hover:text-gray-400">Lucidchart overview</a></li>
-                        <li><a href="#" className="hover:text-gray-400">Lucidscale</a></li>
+                        <li><a href="#" className="hover:text-gray-400">EntityCraft overview</a></li>
+                        <li><a href="#" className="hover:text-gray-400">EntityCraft</a></li>
                         <li><a href="#" className="hover:text-gray-400">Integrations</a></li>
                         <li><a href="#" className="hover:text-gray-400">Security</a></li>
                     </ul>
@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
 
             <div className="mt-10 flex flex-col md:flex-row items-center justify-between text-gray-400">
-                <div className="text-sm mb-4 md:mb-0">© 2024 Lucid Software Inc.</div>
+                <div className="text-sm mb-4 md:mb-0">© 2024 EntityCraft Software Inc.</div>
                 <div className="flex space-x-6">
                     <a href="#" className="hover:text-white">Privacy</a>
                     <a href="#" className="hover:text-white">Legal</a>

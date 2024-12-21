@@ -66,7 +66,7 @@ const Signup = () => {
               type={showPassword ? "text" : "password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded text-black text-black dark-text-white focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full px-4 py-2 border rounded text-black dark-text-white focus:outline-none focus:ring focus:border-blue-300"
               required
             />
 

@@ -1,5 +1,6 @@
 import * as htmlToImage from "html-to-image";
 import jsPDF from "jspdf";
+import { toast } from "react-toastify";
 
 export const ExportButton = ({ elementId }) => {
   const exportToPdf = async () => {
@@ -16,8 +17,11 @@ export const ExportButton = ({ elementId }) => {
 
       pdf.addImage(imgData, "PNG", 0, 0, pageWidth, pageHeight);
       pdf.save("ER_Diagram.pdf");
+      toast.success("PDF export Successfully")
     } catch (error) {
+
       console.log("Error in PDF Generating", error);
+      toast.error("Error in PDF Generating")
     }
   };
 
@@ -32,8 +36,10 @@ export const ExportButton = ({ elementId }) => {
         link.download = "ER_Diagram.png";
         link.href = dataUrl;
         link.click();
+        toast.success("Image export Successfully")
       })
       .catch((error) => {
+        toast.error("oops, something went wrong!")
         console.error("oops, something went wrong!", error);
       });
   };

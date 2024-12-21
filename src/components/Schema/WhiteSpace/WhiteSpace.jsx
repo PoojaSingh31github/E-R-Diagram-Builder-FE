@@ -79,11 +79,11 @@ const WhiteSpace = ({ tables }) => {
   };
 
   return (
-    <div className="White-space mb-32 flex">
+    <div className="White-space flex">
        {/* <ExportButton elementId="whiteBoard" /> */}
       <div
         id="whiteBoard"
-        className={`h-[100vh] mb-32 w-full border ${
+        className={`h-[100vh] w-full border ${
           colorMode === "dark" ? "bg-gray-900" : "bg-[#f8d5a1]"
         }`}
       >

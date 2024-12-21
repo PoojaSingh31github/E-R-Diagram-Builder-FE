@@ -25,9 +25,9 @@ function Sidebar({
 }) {
   return (
     <div className="w-50 px-2">
-        <ExportButton elementId="whiteBoard" />
         <h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
-      <button className="bg-[#FAC67A] text-gray-800 p-3 px-10 cursor-pointer w-full text-lg" onClick={addTable}>
+        <ExportButton elementId="whiteBoard" />
+      <button className="bg-[#FAC67A] text-gray-800 p-3 mt-2 px-4 cursor-pointer w-full text-lg" onClick={addTable}>
         + New table
       </button>
       <div className="mt-2">

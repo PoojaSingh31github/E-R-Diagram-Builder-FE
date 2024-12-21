@@ -58,7 +58,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F9E6CF] pt-20">
+    <div className="flex flex-col min-h-screen bg-[#F9E6CF] pt-6">
       <main className="flex-grow py-8">
         <div className="container mx-auto px-6 text-center ">
           {/* Welcome Section */}
