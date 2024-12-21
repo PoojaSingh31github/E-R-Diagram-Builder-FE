@@ -14,8 +14,8 @@ import {
   FaFileAlt,
   FaUsers,
 } from "react-icons/fa";
-import { useAuth } from "../context/AuthContext";
-import ThemeSwitch from "./ThemeSwitch";
+import { useAuth } from "../context/AuthContext.jsx";
+import ThemeSwitch from "./ThemeSwitch.jsx";
 
 const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);

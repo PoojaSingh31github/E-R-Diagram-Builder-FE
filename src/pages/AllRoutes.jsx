@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import AboutPage from "./About";
-import WhiteSpace from "../components/WhiteSpace/WhiteSpace";
-import Template from "../components/Template/Template";
-import Schema from "../components/schema/Schema";
-import TeamAbout from "./TeamAbout";
-import PrivateRoute from "../utils/PrivateRoute/PrivateRoute";
-import Login from "../components/Auth/Login"
-import Signup from "../components/Auth/Signup"
+import Home from "./Home.jsx";
+import AboutPage from "./About.jsx";
+import WhiteSpace from "../components/WhiteSpace/WhiteSpace.jsx";
+import Template from "../components/Template/Template.jsx";
+import Schema from "../components/tables/Schema.jsx";
+import TeamAbout from "./TeamAbout.jsx";
+import PrivateRoute from "../utils/PrivateRoute/PrivateRoute.jsx";
+import Login from "../components/Auth/Login.jsx"
+import Signup from "../components/Auth/Signup.jsx"
 
 const AllRoutes = () => {
   return (

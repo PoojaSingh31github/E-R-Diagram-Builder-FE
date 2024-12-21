@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
 
 function AboutPage() {
   const [selectedContent, setSelectedContent] = useState('');

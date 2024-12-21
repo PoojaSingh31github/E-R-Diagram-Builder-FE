@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { signupUser } from "../../utils/ApiEndPoints/ApiEndPoint";
+import { signupUser } from "../../utils/ApiEndPoints/ApiEndPoint.js";
 
 const Signup = () => {
   const navigate = useNavigate();

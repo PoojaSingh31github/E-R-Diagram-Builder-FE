@@ -1,4 +1,4 @@
-import useSidebarData from "../../utils/hooks/useSidebarData";
+import useSidebarData from "../../utils/hooks/useSidebarData.js";
 import Sidebar from "./SideBar/Sidebar.jsx";
 import WhiteSpace from "./WhiteSpace/WhiteSpace.jsx";
 

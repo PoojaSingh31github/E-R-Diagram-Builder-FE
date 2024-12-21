@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from './Navbar'
-import AllRoutes from './AllRoutes'
-import Footer from './Footer'
+import Navbar from './Navbar.jsx'
+import AllRoutes from './AllRoutes.jsx'
+import Footer from './Footer.jsx'
 import { ToastContainer, Bounce } from 'react-toastify'
-import { useTheme } from '../context/ThemeContext'
+import { useTheme } from '../context/ThemeContext.jsx'
 
 const MainPage = () => {
   const {theme} = useTheme()
