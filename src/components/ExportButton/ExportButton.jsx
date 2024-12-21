@@ -39,20 +39,22 @@ export const ExportButton = ({ elementId }) => {
   };
 
   return (
-    <div className="flex space-x-2 mt-5 z-10">
+    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-5 z-10 items-center justify-center">
       <button
         onClick={exportToPdf}
-        className="bg-[#7c294f] hover:bg-[#6a2343] text-white  px-4 py-2 rounded-md"
+        className="flex items-center justify-center bg-[#7c294f] hover:bg-[#6a2343] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto"
+        aria-label="Export as PDF"
       >
-       <i className="fas fa-file-pdf"></i>
-       <p>Export as PDF</p>
+        <i className="fas fa-file-pdf mr-2 text-center md:hidden"></i>
+        <span className="hidden md:inline">Export as PDF</span>
       </button>
       <button
         onClick={exportToImage}
-        className="bg-[#7c294f] hover:bg-[#6a2343] text-white  px-4 py-2 rounded-md"
+        className="flex items-center justify-center bg-[#7c294f] hover:bg-[#6a2343] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto"
+        aria-label="Export as Image"
       >
-        <i className="fas fa-image"></i>
-        <p>Export as Image</p>
+        <i className="fas fa-image mr-2 text-center md:hidden"></i>
+        <span className="hidden md:inline">Export as Image</span>
       </button>
     </div>
   );

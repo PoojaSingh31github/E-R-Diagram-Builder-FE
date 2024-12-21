@@ -1,1 +1,0 @@
-export const api_end_point = "https://browser-breakers-be.onrender.com"
