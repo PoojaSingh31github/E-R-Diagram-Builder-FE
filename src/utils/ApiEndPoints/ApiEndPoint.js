@@ -5,6 +5,7 @@ const apiClient = axios.create({
   withCredentials: true,
   timeout: 120000,
 });
+
 apiClient.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem("authToken");
@@ -17,11 +18,25 @@ apiClient.interceptors.request.use(
 );
 
 // Authentication APIs
-const loginUser = (data) => apiClient.post("/users/login", data);
+const loginUser = async(data) => {
+  try {
+    const res = await apiClient.post("/users/login", data);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
 
-const signupUser = (data) => apiClient.post("/users/signup", data);
+const signupUser = async(data) =>{
+  try {
+    const res = await apiClient.post("/users/signup", data);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
 
-const getUserDetails = async () => {
+const getUserDetails = async() => {
   try {
     const res = await apiClient.get(`/users/getUser`);
     return res;
@@ -30,25 +45,51 @@ const getUserDetails = async () => {
   }
 };
 
-// Project APIs
-const createProject = (data) => apiClient.post("/project/", data);
+const createProject = async(data) => {
+ try {
+  const res = await apiClient.post("/project/", data)
+  return res;
+ } catch (error) {
+  return error;
+ }
+};
 
-const getProjectById = (id) => apiClient.get(`/project/getProject/${id}`);
+const getProjectById = async(id) => {
+  try {
+    const res = await apiClient.get(`/project/getProject/${id}`);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
 
-const updateProjectById = (id, data) =>
-  apiClient.put(`/project/updateProject/${id}`, data);
+const updateProjectById = async(id, data) =>{
+  try {
+    const res = await apiClient.put(`/project/updateProject/${id}`, data);
+    return res;
+  } catch (error) {
+    return error;
+}
+};
 
-const deleteProjectById = (id) => apiClient.delete(`/project/${id}`);
+const deleteProjectById = async(id) => {
+  try {
+    const res = await apiClient.delete(`/project/deleteProject/${id}`);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
 
-const getAllProjects = () => apiClient.get(`/project/getAllProjects`);
-
-const registerUser = (data) =>
-  apiClient.post("/users/register", {
-    name: data.name,
-    email: data.email,
-    password: data.password,
-    address: data.address,
-  });
+const getAllProjects = async() =>{
+  try {
+    const res = await apiClient.get("/project/getAllProjects");
+    console.log(res);
+    return res;
+  } catch (error) {
+    return error;
+  }
+};
 
 export {
   loginUser,
@@ -59,5 +100,4 @@ export {
   updateProjectById,
   deleteProjectById,
   getAllProjects,
-  registerUser,
 };

@@ -20,7 +20,7 @@ const Login = () => {
       const response = await loginUser({ email, password });
       console.log(response.data)
       login(response.data);
-      navigate("/whitespace/path");
+      navigate("/dashboard");
       const userData = await getUserDetails();
       setUserData(userData);
       localStorage.setItem("userInfo", JSON.stringify(userData))

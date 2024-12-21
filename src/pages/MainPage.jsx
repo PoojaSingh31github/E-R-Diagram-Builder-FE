@@ -24,7 +24,7 @@ const MainPage = () => {
         transition={Bounce}
       />
     <AllRoutes/>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   )
 }

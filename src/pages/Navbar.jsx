@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext.jsx";
 import ThemeSwitch from "./ThemeSwitch.jsx";
+import logo from "../assets/EC1-01.svg";
 
 const Navbar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   const navItems = user
     ? [
-        { name: "Home", to: "/", icon: <FaUser /> },
+        { name: "Dashboard", to: "/dashboard", icon: <FaUser /> },
         { name: "Whitespace", to: "/whiteSpace/path", icon: <FaFileAlt /> },
         { name: "Schema", to: "/schema/path", icon: <FaDatabase /> },
         { name: "Template", to: "/whiteSpace/template/path", icon: <FaInfoCircle /> },
@@ -47,11 +48,13 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="w-full dark:bg-[#471953] dark:text-white text-black bg-white py-2">
+    <nav className="w-full dark:bg-[#471953] dark:text-white py-2">
       <div className="max-w-7xl bg-transparent mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold">
-        EntityCraft
+        <Link to="/" className="flex items-center space-x-2">
+        {/* <img src={logo} alt="logo" className="w-20 h-20" /> */}
+        entity carft
+       
         </Link>
 
         {/* Menu Items */}

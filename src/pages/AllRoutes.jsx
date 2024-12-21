@@ -9,6 +9,7 @@ import TeamAbout from "./TeamAbout.jsx";
 import PrivateRoute from "../utils/PrivateRoute/PrivateRoute.jsx";
 import Login from "../components/Auth/Login.jsx"
 import Signup from "../components/Auth/Signup.jsx"
+import Dashboard from "../components/Dashboard/Dashboard.jsx";
 
 const AllRoutes = () => {
   return (
@@ -19,6 +20,12 @@ const AllRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/teamAbout" element={<TeamAbout />} />
+
+        <Route path="/dashboard" element={
+          <PrivateRoute>
+          <Dashboard />
+          </PrivateRoute>
+          } />
         <Route
           path="/whiteSpace/path"
           element={
