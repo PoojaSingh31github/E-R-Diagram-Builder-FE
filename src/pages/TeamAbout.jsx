@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TeamAbout = () => {
   const teamMembers = [
@@ -40,14 +41,13 @@ const TeamAbout = () => {
                 alt={`Team Member ${index + 1}`}
               />
               <h3 className="text-xl font-semibold mt-4 text-[#7c294f]-800">{member.name}</h3>
-              <a
-                href={member.linkedin}
-                target="_blank"
+              <Link
+                to={member.linkedin}
                 rel="noopener noreferrer"
                 className="text-blue-500 mt-4 inline-block"
               >
                 LinkedIn
-              </a>
+              </Link>
             </div>
           ))}
         </div>

@@ -45,14 +45,6 @@ const AllRoutes = () => {
            </PrivateRoute>
           }
         />
-        <Route
-          path="/schema/template/path"
-          element={
-           <PrivateRoute>
-            <Flow />
-           </PrivateRoute>
-          }
-        />
       </Routes>
     </div>
   );
