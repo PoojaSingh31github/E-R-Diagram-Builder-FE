@@ -5,7 +5,6 @@ import AboutPage from "./About";
 import WhiteSpace from "../components/WhiteSpace/WhiteSpace";
 import Template from "../components/Template/Template";
 import Schema from "../components/schema/Schema";
-import Flow from "../components/Template/SchemaTemplate";
 import TeamAbout from "./TeamAbout";
 import PrivateRoute from "../utils/PrivateRoute/PrivateRoute";
 import Login from "../components/Auth/Login"
@@ -20,7 +19,6 @@ const AllRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/teamAbout" element={<TeamAbout />} />
-        <Route path="/temp" element={<Flow />} />
         <Route
           path="/whiteSpace/path"
           element={
