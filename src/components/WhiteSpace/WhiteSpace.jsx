@@ -108,77 +108,73 @@ const WhiteSpace = () => {
   };
 
   return (
-    <div className="flex h-screen pt-32 pb-40 bg-[#F9E6CF]">
+    <div className="flex h-screen pt-20 pb-40 bg-[#F9E6CF]">
+      <div className="w-1/5 py-4 px-2 ">
+        <h2 className="text-xl md:text-2xl  text-center text-[#a33669] font-bold mb-4">Tools</h2>
+        <ExportButton elementId="whiteBoard" />
+        <button
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+          onClick={() => addNode("rectangle")}
+        >
+          <i className="md:hidden text-[#7c294f] fas fa-border-all mr-2"></i>
+          <span className="hidden sm:inline">Add Rectangle</span>
+        </button>
+        <button
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+          onClick={() => addNode("parallelogram")}
+        >
+          <i className="md:hidden text-[#7c294f] fas fa-draw-polygon mr-2"></i>
+          <span className="hidden sm:inline">Add Parallelogram</span>
+        </button>
+        <button
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+          onClick={() => addNode("circle")}
+        >
+          <i className="md:hidden text-[#7c294f] fas fa-circle mr-2"></i>
+          <span className="hidden sm:inline">Add Circle</span>
+        </button>
+        <button
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+          onClick={() => addNode("square")}
+        >
+          <i className="md:hidden text-[#7c294f] fas fa-square mr-2"></i>
+          <span className="hidden sm:inline">Add Square</span>
+        </button>
+        <button
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+          onClick={() => addNode("diamond")}
+        >
+          <i className="md:hidden text-[#7c294f] fas fa-gem mr-2"></i>
+          <span className="hidden sm:inline">Add Diamond</span>
+        </button>
 
-<div className="w-full md:w-1/5 p-4 bg-[#F9E6CF] text-gray-800 ">
-<h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
-      <ExportButton elementId="whiteBoard" />
-      <button
-        className="flex items-center  justify-center md:w-full mt-5 py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
-        onClick={() => addNode("rectangle")}
-      >
-        <i className="fas fa-border-all"></i>
-        <span className="hidden md:inline ml-2">Add Rectangle</span>
-      </button>
-
-      <button
-        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
-        onClick={() => addNode("parallelogram")}
-      >
-        <i className="fas fa-draw-polygon"></i>
-        <span className="hidden md:inline ml-2">Add Parallelogram</span>
-      </button>
-
-      <button
-        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
-        onClick={() => addNode("circle")}
-      >
-        <i className="fas fa-circle"></i>
-        <span className="hidden md:inline ml-2">Add Circle</span>
-      </button>
-
-      <button
-        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
-        onClick={() => addNode("square")}
-      >
-        <i className="fas fa-square"></i>
-        <span className="hidden md:inline ml-2">Add Square</span>
-      </button>
-
-      <button
-        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
-        onClick={() => addNode("diamond")}
-      >
-        <i className="fas fa-gem"></i>
-        <span className="hidden md:inline ml-2">Add Diamond</span>
-      </button>
-
-      {selectedNodeId && (
-        <>
-          <button
-            className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
+        {selectedNodeId && (
+          <>
+           <button
+            className="flex items-center mt-2 justify-center bg-[#7c294f] hover:bg-[#5d223c] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
             onClick={deleteNode}
           >
-            <i className="fas fa-trash-alt"></i>
-            <span className="hidden md:inline ml-2">Delete Node</span>
+            <i className="md:hidden fas fa-trash-alt mr-2"></i>
+            <span className="hidden sm:inline">Delete Node</span>
           </button>
           <input
-            className="block md:w-full p-2 mb-2 border rounded text-gray-900"
+            className="w-full p-2 border rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[#7c294f]"
             type="text"
             value={newLabel}
             onChange={handleLabelChange}
             placeholder="New Label"
           />
           <button
-            className="flex items-center justify-center md:w-full py-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
+            className="flex items-center justify-center bg-[#7c294f] hover:bg-[#5d223c] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
             onClick={applyLabelChange}
           >
-            <i className="fas fa-edit"></i>
-            <span className="hidden md:inline ml-2">Change Label</span>
+            <i className="md:hidden fas fa-edit mr-2"></i>
+            <span className="hidden sm:inline"> Change Label</span>
+           
           </button>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
     <div
       id="whiteBoard"
       className={`flex-1 h-[80vh]  border ${colorMode === "dark" ? "bg-gray-900" : "bg-[#f8d5a1]"} `}

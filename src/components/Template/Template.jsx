@@ -401,71 +401,71 @@ const Template = () => {
   };
 
   return (
-    <div className="flex h-screen pt-40 pb-40">
-      <div className="w-1/5 p-4 ">
-        <h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
+    <div className="flex h-screen pt-20 pb-40">
+      <div className="w-1/5 py-4 px-2 ">
+        <h2 className="text-xl md:text-2xl  text-center text-[#a33669] font-bold mb-4">Tools</h2>
         <ExportButton elementId="whiteBoard" />
         <button
-          className="hidden md:block w-full py-2 mt-3 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
           onClick={() => addNode("rectangle")}
         >
-         Add Rectangle
+          <i className="md:hidden text-[#7c294f] fas fa-border-all mr-2"></i>
+          <span className="hidden sm:inline">Add Rectangle</span>
         </button>
-          <i className="fas fa-border-all md:hidden text-[#a33669]" onClick={() => addNode("rectangle")}></i>
-        
         <button
-          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
           onClick={() => addNode("parallelogram")}
         >
-           Add Parallelogram
+          <i className="md:hidden text-[#7c294f] fas fa-draw-polygon mr-2"></i>
+          <span className="hidden sm:inline">Add Parallelogram</span>
         </button>
-           <i className="fas fa-draw-polygon md:hidden text-[#a33669]" onClick={() => addNode("parallelogram")}></i>
-        
         <button
-          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
           onClick={() => addNode("circle")}
         >
-          Add Circle
+          <i className="md:hidden text-[#7c294f] fas fa-circle mr-2"></i>
+          <span className="hidden sm:inline">Add Circle</span>
         </button>
-        <i className="md:hidden text-[#a33669] fas fa-circle" onClick={() => addNode("circle")}></i>
-
         <button
-          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
           onClick={() => addNode("square")}
         >
-          Add Square
+          <i className="md:hidden text-[#7c294f] fas fa-square mr-2"></i>
+          <span className="hidden sm:inline">Add Square</span>
         </button>
-        <i className="md:hidden text-[#a33669] fas fa-square"  onClick={() => addNode("square")}></i>
-
         <button
-          className="hidden md:block w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+          className="flex items-center mt-2 justify-center bg-[#FAC67A] hover:bg-[#d6a55c] text-black px-4 py-1 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
           onClick={() => addNode("diamond")}
         >
-          Add Diamond
+          <i className="md:hidden text-[#7c294f] fas fa-gem mr-2"></i>
+          <span className="hidden sm:inline">Add Diamond</span>
         </button>
-        <i className="md:hidden text-[#a33669] fas fa-gem" onClick={() => addNode("diamond")}></i>
 
         {selectedNodeId && (
           <>
-            <button
-              className="block w-full py-2 mb-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
-              onClick={deleteNode}
-            >
-              Delete Node
-            </button>
-            <input
-              className="block w-full p-2 mb-2 border rounded"
-              type="text"
-              value={newLabel}
-              onChange={handleLabelChange}
-              placeholder="New Label"
-            />
-            <button
-              className="block w-full py-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
-              onClick={applyLabelChange}
-            >
-              Change Label
-            </button>
+           <button
+            className="flex items-center justify-center bg-[#7c294f] hover:bg-[#5d223c] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+            onClick={deleteNode}
+          >
+            <i className="md:hidden text-[#7c294f] fas fa-trash-alt mr-2"></i>
+            <span className="hidden sm:inline">Delete Node</span>
+            
+          </button>
+          <input
+            className="w-full p-2 border rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-[#7c294f]"
+            type="text"
+            value={newLabel}
+            onChange={handleLabelChange}
+            placeholder="New Label"
+          />
+          <button
+            className="flex items-center justify-center bg-[#7c294f] hover:bg-[#5d223c] text-white px-4 py-2 rounded-md transition-all duration-200 shadow-md hover:shadow-lg w-full"
+            onClick={applyLabelChange}
+          >
+            <i className="md:hidden fas fa-edit mr-2"></i>
+            <span className="hidden sm:inline"> Change Label</span>
+           
+          </button>
           </>
         )}
       </div>

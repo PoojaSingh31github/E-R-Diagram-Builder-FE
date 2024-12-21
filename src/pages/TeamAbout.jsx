@@ -8,7 +8,7 @@ const TeamAbout = () => {
       linkedin: "https://www.linkedin.com/in/pooja-singh-689024278/"
     },
     {
-      name: "Adharsh ",
+      name: "Adharsh",
       img: "https://i.ibb.co/D1DXGLy/IMG20230313194659.jpg",
       linkedin: "https://www.linkedin.com/in/akash-srivastava-b3b3041bb/"
     },
@@ -18,7 +18,7 @@ const TeamAbout = () => {
       linkedin: "https://www.linkedin.com/in/arpit-shrivastava-85a331260"
     },
     {
-      name: "Abhishek ",
+      name: "Abhishek",
       img: "https://i.ibb.co/ZcK8SPs/profilepic.jpg",
       linkedin: "https://www.linkedin.com/in/anisha-singh-9a4640295"
     },

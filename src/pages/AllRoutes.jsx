@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Login";
 import Home from "./Home";
 import AboutPage from "./About";
 import WhiteSpace from "../components/WhiteSpace/WhiteSpace";
@@ -8,49 +7,50 @@ import Template from "../components/Template/Template";
 import Schema from "../components/schema/Schema";
 import Flow from "../components/Template/SchemaTemplate";
 import TeamAbout from "./TeamAbout";
-import SignupCom from "../components/Auth/Register";
-import LoginCom from "../components/Auth/Login";
+import PrivateRoute from "../utils/PrivateRoute/PrivateRoute";
+import Login from "../components/Auth/Login"
+import Signup from "../components/Auth/Signup"
 
 const AllRoutes = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<SignupCom />} />
-        <Route path="/login" element={<LoginCom />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/teamAbout" element={<TeamAbout />} />
         <Route path="/temp" element={<Flow />} />
         <Route
           path="/whiteSpace/path"
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
             <WhiteSpace />
-            // </PrivateRoute>
+             </PrivateRoute>
           }
         />
         <Route
           path="/whiteSpace/template/path"
           element={
-            // <PrivateRoute>
+           <PrivateRoute>
             <Template />
-            // </PrivateRoute>
+           </PrivateRoute>
           }
         />
         <Route
           path="/schema/path"
           element={
-            // <PrivateRoute>
+           <PrivateRoute>
             <Schema />
-            // </PrivateRoute>
+           </PrivateRoute>
           }
         />
         <Route
           path="/schema/template/path"
           element={
-            // <PrivateRoute>
+           <PrivateRoute>
             <Flow />
-            // </PrivateRoute>
+           </PrivateRoute>
           }
         />
       </Routes>

@@ -1,66 +1,166 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+/* eslint-disable no-unused-vars */
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  FaBars,
+  FaTimes,
+  FaHome,
+  FaInfoCircle,
+  FaSignInAlt,
+  FaUser,
+  FaCog,
+  FaPowerOff,
+  FaDatabase,
+  FaFileAlt,
+  FaUsers,
+} from "react-icons/fa";
+import { useAuth } from "../contextApi/AuthContext";
+import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navItems = user
+    ? [
+        { name: "Home", to: "/", icon: <FaUser /> },
+        { name: "Whitespace", to: "/whiteSpace/path", icon: <FaFileAlt /> },
+        { name: "Schema", to: "/schema/path", icon: <FaDatabase /> },
+        { name: "Template", to: "/whiteSpace/template/path", icon: <FaInfoCircle /> },
+      ]
+      : [
+        { name: "Home", to: "/", icon: <FaHome /> },
+        { name: "Team About", to: "/teamAbout", icon: <FaUsers /> },
+        { name: "About", to: "/about", icon: <FaInfoCircle /> },
+        { name: "Login", to: "/login", icon: <FaSignInAlt /> },
+      ];
+
+  const toggleMobileMenu = () => setIsMobileOpen(!isMobileOpen);
+  const closeMobileMenu = () => setIsMobileOpen(false);
+
+  const handleLogout = () => {
+    console.log("Logout");
+    logout()
+    navigate("/login")
+  }
 
   return (
-    <nav className="bg-[#471953] shadow-lg fixed w-full z-10 border-b border-gray-200">
-      <nav className='hidden md:flex justify-end max-w-screen-xl mx-auto '>
-      <ul className=" font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-[#da498e] md:dark:bg-[#471953] dark:border-gray-700">
-            <li>
-              <Link to="/" className="block py-2 px-3 text-white bg-[#FAC67A]  rounded md:bg-transparent md:text-[#7c294f] md:p-0 dark:text-white md:dark:text-[#FAC67A]" aria-current="page">Home</Link>
-            </li>
-            <li>
-              <Link to="/about" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7c294f] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</Link>
-            </li>
-            <li>
-              <Link to="/teamAbout" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7c294f] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Team About</Link>
-            </li>
-            <li>
-              <Link to="/login" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#7c294f] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</Link>
-            </li>
-          </ul>
-      </nav>
-
-      <div className="w-full h-[1px] bg-gray-300 dark:bg-gray-600 my-2"></div>
-
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="https://i.ibb.co/pjhYyvH/Entity-Craft-Entity-Craft.png" className="h-8" alt="ERD Logo" />
-          <p className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EntityCraft</p>
+    <nav className="w-full dark:bg-[#471953] dark:text-white text-black bg-white py-2">
+      <div className="max-w-7xl bg-transparent mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold">
+        EntityCraft
         </Link>
+
+        {/* Menu Items */}
+        <ul className="hidden md:flex space-x-6 items-center">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <Link
+                to={item.to}
+                className="flex items-center space-x-2 hover:text-[#da498e]"
+              >
+                {item.icon} <span>{item.name}</span>
+              </Link>
+            </li>
+          ))}
+
+          {user ? (
+            <li>
+              <div className="relative">
+                <button
+                  onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                  className="flex items-center space-x-2 focus:outline-none hover:text-gray-300"
+                >
+                  <img
+                    src={
+                      user.profileImage ||
+                      "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+                    }
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span>{user.name}</span>
+                </button>
+                {isProfileMenuOpen && (
+                  <ul className="absolute z-40 right-0 flex flex-col justify-center items-center mt-2 w-48 bg-[#7c294f] shadow-lg rounded-md text-sm">
+                    <li>
+                      <ThemeSwitch />
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full px-4 py-2 hover:bg-[#da498e]"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </li>
+          ) : (
+            <ThemeSwitch />
+          )}
+        </ul>
         <button
-          onClick={toggleMenu}
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-expanded={isOpen ? "true" : "false"}
+          onClick={toggleMobileMenu}
+          className="md:hidden text-2xl focus:outline-none"
         >
-          <span className="sr-only">Open main menu</span>
-          <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-          </svg>
+          {isMobileOpen ? <FaTimes /> : <FaBars />}
         </button>
-        <div className={`md:block ${isOpen ? 'block' : 'hidden'} w-full md:w-auto`} id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-[#da498e] md:dark:bg-[#471953] dark:border-gray-700">
-            <li>
-              <Link to="/whiteSpace/path" className="block py-2 px-3 text-gray-900 rounded hover:bg-[#FAC67A] md:hover:bg-transparent md:border-0 md:hover:text-[#FAC67A] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A]">Whitespace</Link>
-            </li>
-            <li>
-              <Link to="/schema/path" className="block py-2 px-3 text-gray-900 rounded hover:bg-[#FAC67A] md:hover:bg-transparent md:border-0 md:hover:text-[#FAC67A] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A]">Schema</Link>
-            </li>
-            <li>
-              <Link to="/whiteSpace/template/path" className="block py-2 px-3 text-gray-900 rounded hover:bg-[#FAC67A] md:hover:bg-transparent md:border-0 md:hover:text-[#FAC67A] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A]">Whitespace Template</Link>
-            </li>
-            <li>
-              <Link to="/schema/template/path" className="block py-2 px-3 text-gray-900 rounded hover:bg-[#FAC67A] md:hover:bg-transparent md:border-0 md:hover:text-[#FAC67A] md:p-0 dark:text-white md:dark:hover:text-[#FAC67A]">Schema Template</Link>
-            </li>
-          </ul>
-        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileOpen && (
+        <ul className="md:hidden bg-[#471953] py-4 space-y-4 text-center">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <Link
+                to={item.to}
+                className="flex items-center justify-center space-x-2 hover:text-gray-300"
+                onClick={closeMobileMenu}
+              >
+                {item.icon} <span>{item.name}</span>
+              </Link>
+            </li>
+          ))}
+          {!user && (
+            <li>
+              <div className="relative">
+                <button
+                  onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                  className="flex items-center space-x-2 focus:outline-none hover:text-gray-300"
+                >
+                  <img
+                    src={user.profileImage || "/placeholder.png"}
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <span>{user.name}</span>
+                </button>
+                {isProfileMenuOpen && (
+                  <ul className="absolute right-0 mt-2 w-48 bg-[#7c294f] shadow-lg rounded-md text-sm">
+                    <li>
+                      <ThemeSwitch />
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full px-4 py-2 hover:bg-[#da498e]"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            </li>
+          )}
+        </ul>
+      )}
     </nav>
   );
 };

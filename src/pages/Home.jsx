@@ -76,7 +76,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/whiteSpace/path"
-                  className="px-6 py-3 bg-[#7c294f] text-white text-lg font-semibold rounded-md shadow-md hover:bg-[#5d223c] transition"
+                  className="px-6 py-3 dark:bg-[#7c294f] text-white text-lg font-semibold rounded-md shadow-md hover:bg-[#5d223c] transition"
                 >
                   Start Designing
                 </Link>
