@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import AllRoutes from './AllRoutes'
 import Footer from './Footer'
 import { ToastContainer, Bounce } from 'react-toastify'
-import { useTheme } from '../ContextApi/ThemeContext'
+import { useTheme } from '../contextApi/ThemeContext'
 
 const MainPage = () => {
   const {theme} = useTheme()

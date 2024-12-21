@@ -1,5 +1,5 @@
 import { MdDarkMode, MdLightMode } from "react-icons/md";
-import { useTheme } from "../ContextApi/ThemeContext";
+import { useTheme } from "../contextApi/ThemeContext";
 
 
 const ThemeSwitch = () => {
