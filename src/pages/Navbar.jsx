@@ -14,7 +14,7 @@ import {
   FaFileAlt,
   FaUsers,
 } from "react-icons/fa";
-import { useAuth } from "../contextApi/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import ThemeSwitch from "./ThemeSwitch";
 
 const Navbar = () => {

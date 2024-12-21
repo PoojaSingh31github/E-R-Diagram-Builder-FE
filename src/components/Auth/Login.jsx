@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useAuth } from "../../contextApi/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { getUserDetails, loginUser } from "../../utils/ApiEndPoints/ApiEndPoint";
 
 const Login = () => {
