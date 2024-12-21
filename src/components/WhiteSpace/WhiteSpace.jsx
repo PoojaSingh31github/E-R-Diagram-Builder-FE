@@ -21,8 +21,8 @@ import {
 } from "../Another/Shape";
 // import Sidebar from "../Sidebar/Sidebar.jsx";
 
-const initialEdges = [];
-const initialNodes = [];
+// const initialEdges = [];
+// const initialNodes = [];
 
 const nodeTypes = {
   rectangle: RectangleNode,
@@ -33,34 +33,29 @@ const nodeTypes = {
 };
 
 const WhiteSpace = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(JSON.parse(localStorage.getItem("WhiteSpaceNodes")) || []);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(JSON.parse(localStorage.getItem("WhiteSpaceEdges")) || []);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [newLabel, setNewLabel] = useState("");
   const [colorMode, setColorMode] = useState("dark");
 
   const onConnect = useCallback(
     (params) => {
-      setEdges((eds) =>
-        addEdge(
+      setEdges((eds) => {
+        const newEdges = addEdge(
           {
             ...params,
             type: "smoothstep",
-            markerEnd: {
-              width: 10,
-              height: 10,
-              color: "#3470e4",
-            },
-            style: {
-              strokeWidth: 2,
-              stroke: "#3470e4",
-            },
+            markerEnd: { width: 10, height: 10, color: "#3470e4" },
+            style: { strokeWidth: 2, stroke: "#3470e4" },
           },
           eds
-        )
-      );
+        );
+        updateLocalStorage(nodes, newEdges);
+        return newEdges;
+      });
     },
-    [setEdges]
+    [nodes]
   );
 
   const addNode = (shapeType) => {
@@ -70,7 +65,14 @@ const WhiteSpace = () => {
       data: { label: `${nodes.length + 1}` },
       type: shapeType,
     };
-    setNodes((nds) => [...nds, newNode]);
+    const updatedNodes = [...nodes, newNode];
+    setNodes(updatedNodes);
+    updateLocalStorage(updatedNodes, edges);
+  };
+
+  const updateLocalStorage = (updatedNodes, updatedEdges) => {
+    localStorage.setItem("WhiteSpaceNodes", JSON.stringify(updatedNodes));
+    localStorage.setItem("WhiteSpaceEdges", JSON.stringify(updatedEdges));
   };
 
   const deleteNode = () => {
@@ -81,6 +83,9 @@ const WhiteSpace = () => {
           edge.source !== selectedNodeId && edge.target !== selectedNodeId
       )
     );
+    setNodes(updatedNodes);
+    setEdges(updatedEdges);
+    updateLocalStorage(updatedNodes, updatedEdges);
     setSelectedNodeId(null);
   };
 
@@ -96,20 +101,20 @@ const WhiteSpace = () => {
           : node
       )
     );
+    setNodes(updatedNodes);
+    updateLocalStorage(updatedNodes, edges);
     setNewLabel("");
     setSelectedNodeId(null);
   };
 
   return (
-    <div className="flex h-screen pt-32 pb-20 bg-[#F9E6CF]">
+    <div className="flex h-screen pt-32 pb-40 bg-[#F9E6CF]">
 
 <div className="w-full md:w-1/5 p-4 bg-[#F9E6CF] text-gray-800 ">
 <h2 className="text-2xl text-center text-[#a33669] font-bold mb-4">Tools</h2>
       <ExportButton elementId="whiteBoard" />
-
-      
       <button
-        className="flex items-center  justify-center w-full mt-5 py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+        className="flex items-center  justify-center md:w-full mt-5 py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("rectangle")}
       >
         <i className="fas fa-border-all"></i>
@@ -117,7 +122,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("parallelogram")}
       >
         <i className="fas fa-draw-polygon"></i>
@@ -125,7 +130,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("circle")}
       >
         <i className="fas fa-circle"></i>
@@ -133,7 +138,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("square")}
       >
         <i className="fas fa-square"></i>
@@ -141,7 +146,7 @@ const WhiteSpace = () => {
       </button>
 
       <button
-        className="flex items-center justify-center w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
+        className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#FAC67A] rounded hover:bg-[#d6a55c]"
         onClick={() => addNode("diamond")}
       >
         <i className="fas fa-gem"></i>
@@ -151,21 +156,21 @@ const WhiteSpace = () => {
       {selectedNodeId && (
         <>
           <button
-            className="flex items-center justify-center w-full py-2 mb-2 bg-red-500 rounded hover:bg-red-600"
+            className="flex items-center justify-center md:w-full py-2 mb-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
             onClick={deleteNode}
           >
             <i className="fas fa-trash-alt"></i>
             <span className="hidden md:inline ml-2">Delete Node</span>
           </button>
           <input
-            className="block w-full p-2 mb-2 border rounded text-gray-900"
+            className="block md:w-full p-2 mb-2 border rounded text-gray-900"
             type="text"
             value={newLabel}
             onChange={handleLabelChange}
             placeholder="New Label"
           />
           <button
-            className="flex items-center justify-center w-full py-2 bg-green-500 rounded hover:bg-green-600"
+            className="flex items-center justify-center md:w-full py-2 bg-[#7c294f] rounded hover:bg-[#5d223c]"
             onClick={applyLabelChange}
           >
             <i className="fas fa-edit"></i>
@@ -176,7 +181,7 @@ const WhiteSpace = () => {
     </div>
     <div
       id="whiteBoard"
-      className={`flex-1 border ${colorMode === "dark" ? "bg-gray-900" : "bg-white"}`}
+      className={`flex-1 h-[80vh]  border ${colorMode === "dark" ? "bg-gray-900" : "bg-[#f8d5a1]"} `}
     >
       <ReactFlow
         nodes={nodes}

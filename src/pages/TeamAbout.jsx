@@ -4,21 +4,21 @@ const TeamAbout = () => {
   const teamMembers = [
     {
       name: "Pooja Singh",
-      img: "https://i.ibb.co/n3YVDk0/pooja.jpg",
+      img: "https://i.ibb.co/CB20Sfp/1.jpg",
       linkedin: "https://www.linkedin.com/in/pooja-singh-689024278/"
     },
     {
-      name: "Akash Srivastava",
+      name: "Adharsh ",
       img: "https://i.ibb.co/D1DXGLy/IMG20230313194659.jpg",
       linkedin: "https://www.linkedin.com/in/akash-srivastava-b3b3041bb/"
     },
     {
-      name: "Sharvari Patil",
+      name: "Arpit Shrivastava",
       img: "https://i.ibb.co/HqtxRDm/IMG-20241124-130724-290.webp",
-      linkedin: "https://www.linkedin.com/in/sharvari-patil1103/"
+      linkedin: "https://www.linkedin.com/in/arpit-shrivastava-85a331260"
     },
     {
-      name: "Anisha Singh",
+      name: "Abhishek ",
       img: "https://i.ibb.co/ZcK8SPs/profilepic.jpg",
       linkedin: "https://www.linkedin.com/in/anisha-singh-9a4640295"
     },

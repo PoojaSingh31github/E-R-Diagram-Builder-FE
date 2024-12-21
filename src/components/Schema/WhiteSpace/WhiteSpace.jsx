@@ -17,6 +17,7 @@ const WhiteSpace = ({ tables }) => {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [relationshipType, setRelationshipType] = useState("One-to-One");
+  console.log(nodes, edges)
 
   useEffect(() => {
     const newNodes = [];
@@ -78,11 +79,11 @@ const WhiteSpace = ({ tables }) => {
   };
 
   return (
-    <div className="White-space mb-32">
+    <div className="White-space mb-32 flex">
        {/* <ExportButton elementId="whiteBoard" /> */}
       <div
         id="whiteBoard"
-        className={`h-[90vh] mb-32 w-full border ${
+        className={`h-[100vh] mb-32 w-full border ${
           colorMode === "dark" ? "bg-gray-900" : "bg-[#f8d5a1]"
         }`}
       >
