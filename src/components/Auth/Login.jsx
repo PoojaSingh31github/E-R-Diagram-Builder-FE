@@ -22,10 +22,10 @@ const LoginCom = () => {
 
         setUser({ email: '', password: '' });
         setLoading(false);
-        navigate("/profile")
-      }
-    } catch (error) {
-      console.log(error)
+          navigate("/profile")
+        }
+      } catch (error) {
+        console.log(error)
       setLoading(false)
     }
   }
