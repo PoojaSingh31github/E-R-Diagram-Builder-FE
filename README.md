@@ -75,10 +75,10 @@ package.json
 ```
 
 ## Video Walkthrough of the project
-Attach a very short video walkthough of all of the features [ 1 - 3 minutes ]
+Attached a very short video walkthough of all of the features [[link]](https://youtu.be/roHsoD81Scw)
 
 ## Video Walkthrough of the codebase
-Attach a very short video walkthough of codebase [ 1 - 5 minutes ]
+Attached a very short video walkthough of codebase [[Link]](https://youtu.be/FXNXMXomI-Y)
 
 ## Features
 List out the key features of your application.
