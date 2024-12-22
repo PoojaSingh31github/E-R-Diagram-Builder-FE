@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const TeamAbout = () => {
   const teamMembers = [
@@ -24,6 +25,7 @@ const TeamAbout = () => {
   ];
 
   return (
+    <>
     <section className="py-12 bg-[#F9E6CF] pt-20">
       <div className="container mx-auto text-center px-4">
         <h2 className="text-3xl font-semibold text-[#7c294f]">Meet Our Team</h2>
@@ -53,6 +55,8 @@ const TeamAbout = () => {
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 };
 

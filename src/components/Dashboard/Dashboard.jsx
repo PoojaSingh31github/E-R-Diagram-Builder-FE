@@ -72,11 +72,10 @@ const Dashboard = () => {
 
   return (
     <>
-
-          <h1 className="text-[#7c294f] text-xl font-bold">Dashboard</h1>
+          <h1 className="text-[#7c294f] text-3xl text-center my-6 font-bold">Dashboard</h1>
           <button
             onClick={() => setOpenModal(true)}
-            className="px-4 py-2 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270]"
+            className="px-4 py-2 relative left-28 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270]"
           >
             Create Project
           </button>

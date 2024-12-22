@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from './Footer';
 
 function AboutPage() {
   return (
@@ -167,6 +168,7 @@ function AboutPage() {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 }

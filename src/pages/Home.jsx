@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const Home = () => {
   const scrollRef = useRef(null);
@@ -133,7 +134,7 @@ const Home = () => {
           </div>
         </div>
       </main>
-
+    <Footer/>
     </div>
   );
 };
