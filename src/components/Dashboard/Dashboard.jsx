@@ -75,18 +75,31 @@ const Dashboard = () => {
           <h1 className="text-[#7c294f] text-3xl text-center my-6 font-bold">Dashboard</h1>
           <button
             onClick={() => setOpenModal(true)}
-            className="px-4 py-2 relative left-28 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270]"
+            className="px-4 py-2 relative left-1/3 md:left-28 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270]"
           >
             Create Project
           </button>
-      <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {projects && projects.map((project) => 
-        
+          <div className="container mx-auto p-4">
+  {projects && projects.length > 0 ? (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      {projects.map((project) => (
         <div key={project._id}>
-          <ProjectCard data={project} clickHandler={handleCardClick} deleteHandler={handleDeleteProject} />
+          <ProjectCard 
+            data={project} 
+            clickHandler={handleCardClick} 
+            deleteHandler={handleDeleteProject} 
+          />
         </div>
-        )}
-      </div>
+      ))}
+    </div>
+  ) : (
+    <div className="flex items-center justify-center h-64">
+      <p className="text-center text-[#7c294f] text-2xl font-bold">
+        No projects found
+      </p>
+    </div>
+  )}
+</div>
 
 
       {openModal && (
