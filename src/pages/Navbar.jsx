@@ -46,7 +46,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="w-full dark:bg-[#471953] dark:text-white py-2">
+    <nav className="w-full bg-[#471953] text-white py-2">
       <div className="max-w-7xl bg-transparent mx-auto px-4 py-4 flex justify-between items-center">
  
         <Link to="/" className="flex items-center space-x-2 font-bold text-2xl">
