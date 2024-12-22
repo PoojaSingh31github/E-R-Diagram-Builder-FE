@@ -94,7 +94,7 @@ const Dashboard = () => {
     </div>
   ) : (
     <div className="flex items-center justify-center h-64">
-      <p className="text-center text-[#7c294f] text-2xl font-bold">
+      <p className="text-center text-[#7c294f] text-3xl ">
         No projects found
       </p>
     </div>
