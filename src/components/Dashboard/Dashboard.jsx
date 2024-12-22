@@ -1,92 +1,104 @@
-import React, { useEffect, useState } from 'react'
-import { getAllProjects ,createProject, deleteProjectById} from '../../utils/ApiEndPoints/ApiEndPoint';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  getAllProjects,
+  createProject,
+  deleteProjectById,
+} from "../../utils/ApiEndPoints/ApiEndPoint";
+import { toast } from "react-toastify";
+import ProjectCard from "./ProjectCard";
 
 const Dashboard = () => {
-    const [openModal, setOpenModal] = useState(false);
-    const [projectName, setProjectName] = useState("");
-    const [description, setDescription] = useState("");
-    const [projectType, setProjectType] = useState("erd");
-    const [projects, setProjects] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [projectName, setProjectName] = useState("");
+  const [description, setDescription] = useState("");
+  const [projectType, setProjectType] = useState("erd");
+  const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
 
-    const fetchProjects = async () => {
-      try {
-        const response = await getAllProjects();
-        setProjects(response.data);
-      } catch (error) {
-        console.error('Failed to fetch projects:', error);
-      }
+  const fetchProjects = async () => {
+    try {
+      const response = await getAllProjects();
+      setProjects(response.data);
+    } catch (error) {
+      console.error("Failed to fetch projects:", error);
+    }
+  };
+
+  const handleCreateProject = async (e) => {
+    e.preventDefault();
+    const newProject = {
+      name: projectName,
+      description,
+      type: projectType,
     };
 
-    const handleCreateProject = async (e) => {
-      e.preventDefault();
-      const newProject = {
-        name: projectName,
-        description,
-        type: projectType,
-      };
-      try {
-        await createProject(newProject);
-        toast.success('Project created successfully!');
-        setOpenModal(false);
-        setProjectName("");
-        setDescription("");
-        setProjectType("erd");
-        fetchProjects(); 
-
-      } catch (error) {
-        toast.error('Failed to create project!');
-        console.error('Failed to create project:', error);
-      }
-    };
-
-    const handleDeleteProject = async (id) => {
-      try {
-        await deleteProjectById(id);
-        toast.success('Project deleted successfully!');
-        fetchProjects(); 
-      } catch (error) {
-        toast.error('Failed to delete project!');
-        console.error('Failed to delete project:', error);
-      }
-    };
-  
-    useEffect(() => {
+    try {
+      await createProject(newProject);
+      toast.success("Project created successfully!");
+      setOpenModal(false);
+      setProjectName("");
+      setDescription("");
+      setProjectType("erd");
       fetchProjects();
-    }, []);
+    } catch (error) {
+      toast.error("Failed to create project!");
+      console.error("Failed to create project:", error);
+    }
+  };
+
+  const handleDeleteProject = async (id) => {
+    try {
+      await deleteProjectById(id);
+      toast.success("Project deleted successfully!");
+      fetchProjects();
+    } catch (error) {
+      toast.error("Failed to delete project!");
+      console.error("Failed to delete project:", error);
+    }
+  };
+
+  const handleCardClick = (project) => {
+    if (project.type === "sd") {
+      navigate(`/whiteSpace/${project._id}`);
+    } else {
+      navigate(`/schema/${project._id}`);
+    }
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
 
   return (
     <>
-     {/* Trigger Button */}
-     <button
-        onClick={() => setOpenModal(true)}
-        className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
-      >
-        Open Project Modal
-      </button>
 
-     {/* Project Cards */}
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-        {projects && projects.map((project) => (
-          <div key={project._id} className="bg-white p-4 rounded-lg shadow-lg">
-            <h3 className="text-lg font-bold">{project.name}</h3>
-            <p className="text-gray-700 mt-2">{project.description}</p>
-            <p className="text-sm text-gray-500 mt-2">Type: {project.type}</p>
-            <button
-              onClick={() => handleDeleteProject(project._id)}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-            >
-              Delete
-            </button>
-          </div>
-        ))}
+      <nav className="bg-blue-500 p-4 shadow-md">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-white text-xl font-bold">Dashboard</h1>
+          <button
+            onClick={() => setOpenModal(true)}
+            className="px-4 py-2 bg-white text-blue-500 font-semibold rounded-lg hover:bg-gray-200 focus:ring-2 focus:ring-blue-300"
+          >
+            Create Project
+          </button>
+        </div>
+      </nav>
+
+      <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        {projects && projects.map((project) => 
+        
+        <div key={project._id}>
+          <ProjectCard data={project} clickHandler={handleCardClick} deleteHandler={handleDeleteProject} />
+        </div>
+        )}
       </div>
 
 
-    {openModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+      {openModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30">
           <div className="bg-white w-11/12 max-w-lg rounded-lg p-6 shadow-lg relative">
-            {/* Close Button */}
+            
             <button
               onClick={() => setOpenModal(false)}
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
@@ -94,10 +106,12 @@ const Dashboard = () => {
               ✖
             </button>
 
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">Add Project Details</h2>
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+              Add Project Details
+            </h2>
 
             <form onSubmit={handleCreateProject} className="space-y-4">
-              {/* Project Name */}
+              
               <div>
                 <label
                   htmlFor="projectName"
@@ -116,7 +130,7 @@ const Dashboard = () => {
                 />
               </div>
 
-              {/* Project Description */}
+              
               <div>
                 <label
                   htmlFor="description"
@@ -135,7 +149,7 @@ const Dashboard = () => {
                 ></textarea>
               </div>
 
-              {/* Project Type Dropdown */}
+              
               <div>
                 <label
                   htmlFor="projectType"
@@ -151,12 +165,12 @@ const Dashboard = () => {
                   required
                 >
                   <option value="">Select project type</option>
-                  <option value="erd">E-R Digram</option>
-                  <option value="sd">Schema Digram</option>
+                  <option value="erd">E-R Diagram</option>
+                  <option value="sd">WhiteSpace Diagram</option>
                 </select>
               </div>
 
-              {/* Submit Button */}
+        
               <div className="flex justify-end">
                 <button
                   type="submit"
@@ -169,9 +183,8 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-    
     </>
-  )
-}
+  );
+};
 
 export default Dashboard;

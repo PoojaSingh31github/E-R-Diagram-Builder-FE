@@ -75,29 +75,27 @@ function Sidebar({
                   </div>
                 )}
               </div>
-              <div class="text-[#a33669] p-2 cursor-pointer" onClick={() => toggleExpand(index)} >⚙️</div>
+              <div className="text-[#a33669] p-2 cursor-pointer" onClick={() => toggleExpand(index)} >⚙️</div>
 
             </div>
 
             {/* Show table data if the table is expanded */}
             {expandedTable === index && (
               <>
-                <div className="table-columns">
+                <div className="table-columns w-52">
                   {table.columns.map((column, colIndex) => (
-                    <div key={colIndex} className="table-column">
+                    <div key={colIndex} className=" w-full flex justify-center items-center gap-2">
                       <input
                         type="text"
                         value={column.name}
                         onChange={(e) => updateColumn(index, colIndex, 'name', e.target.value)}
-                        placeholder="Column Name"
-                        className="column-name"
+                        className="w-1/2 border border-black rounded-lg p-1"
                       />
                       <input
                         type="text"
                         value={column.type}
                         onChange={(e) => updateColumn(index, colIndex, 'type', e.target.value)}
-                        placeholder="Data Type"
-                        className="column-type"
+                        className="w-1/2 border border-black rounded-lg p-1"
                       />
                       {column.name !== 'id' && (
                         <div className="column-options">
@@ -115,7 +113,7 @@ function Sidebar({
 
                 <div className="table-comments">
                   {table.comments.map((comment, idx) => (
-                    <div key={idx} class="comment-input w-full p-2 mt-2 rounded border border-gray-900 text-[#832b54]" placeholder="Add a comment">
+                    <div key={idx} className="comment-input w-full p-2 mt-2 rounded border border-gray-900 text-[#832b54]" placeholder="Add a comment">
                       <i className="fa-solid text-[#a33669] fa-comment"></i> {comment}
                     </div>
                   ))}

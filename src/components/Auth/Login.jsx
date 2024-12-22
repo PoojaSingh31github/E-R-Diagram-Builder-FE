@@ -18,7 +18,6 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await loginUser({ email, password });
-      console.log(response.data)
       login(response.data);
       navigate("/dashboard");
       const userData = await getUserDetails();

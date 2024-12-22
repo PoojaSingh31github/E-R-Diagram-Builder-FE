@@ -27,7 +27,7 @@ const AllRoutes = () => {
           </PrivateRoute>
           } />
         <Route
-          path="/whiteSpace/path"
+          path="/whiteSpace/:id"
           element={
             <PrivateRoute>
             <WhiteSpace />
@@ -35,7 +35,7 @@ const AllRoutes = () => {
           }
         />
         <Route
-          path="/whiteSpace/template/path"
+          path="/whiteSpace/template"
           element={
            <PrivateRoute>
             <Template />
@@ -43,7 +43,7 @@ const AllRoutes = () => {
           }
         />
         <Route
-          path="/schema/path"
+          path="/schema/:id"
           element={
            <PrivateRoute>
             <Schema />

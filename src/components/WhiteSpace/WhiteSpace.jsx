@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   ReactFlow,
   useNodesState,
@@ -19,18 +19,9 @@ import {
   RectangleNode,
   SquareNode,
 } from "../Another/Shape";
+import { useParams } from "react-router-dom";
+import { getProjectById, updateProjectById } from "../../utils/ApiEndPoints/ApiEndPoint";
 
-import {
-  createProject,
-  getProjectById,
-  updateProjectById,
-  deleteProjectById,
-  getAllProjects,
-} from '../../utils/ApiEndPoints/ApiEndPoint.js';
-// import Sidebar from "../Sidebar/Sidebar.jsx";
-
-// const initialEdges = [];
-// const initialNodes = [];
 
 const nodeTypes = {
   rectangle: RectangleNode,
@@ -41,11 +32,41 @@ const nodeTypes = {
 };
 
 const WhiteSpace = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(JSON.parse(localStorage.getItem("WhiteSpaceNodes")) || []);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(JSON.parse(localStorage.getItem("WhiteSpaceEdges")) || []);
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
   const [newLabel, setNewLabel] = useState("");
   const [colorMode, setColorMode] = useState("dark");
+
+  const projectId = useParams().id;
+
+  useEffect(()=>{
+   getProjectDetails()
+
+  },[projectId]);
+
+  const sendDataTobackend = async(nodesData, edgeData)=>{
+    const data = {
+      nodes: nodesData,
+      edges: edgeData
+    }
+    try {
+      const res = await updateProjectById(projectId, data)
+      console.log(res)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  const getProjectDetails = async()=>{
+    try {
+      const res = await  getProjectById(projectId);
+      setNodes(res.data.nodes)
+      setEdges(res.data.edges)
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   const onConnect = useCallback(
     (params) => {
@@ -59,7 +80,7 @@ const WhiteSpace = () => {
           },
           eds
         );
-        updateLocalStorage(nodes, newEdges);
+        sendDataTobackend(nodes, newEdges);
         return newEdges;
       });
     },
@@ -75,44 +96,42 @@ const WhiteSpace = () => {
     };
     const updatedNodes = [...nodes, newNode];
     setNodes(updatedNodes);
-    updateLocalStorage(updatedNodes, edges);
-  };
-
-  const updateLocalStorage = (updatedNodes, updatedEdges) => {
-    localStorage.setItem("WhiteSpaceNodes", JSON.stringify(updatedNodes));
-    localStorage.setItem("WhiteSpaceEdges", JSON.stringify(updatedEdges));
+    sendDataTobackend(updatedNodes, edges);
   };
 
   const deleteNode = () => {
-    setNodes((nds) => nds.filter((node) => node.id !== selectedNodeId));
-    setEdges((eds) =>
-      eds.filter(
-        (edge) =>
-          edge.source !== selectedNodeId && edge.target !== selectedNodeId
-      )
+    const updatedNodes = nodes.filter((node) => node.id !== selectedNodeId);
+    const updatedEdges = edges.filter(
+      (edge) =>
+        edge.source !== selectedNodeId && edge.target !== selectedNodeId
     );
+  
     setNodes(updatedNodes);
     setEdges(updatedEdges);
-    updateLocalStorage(updatedNodes, updatedEdges);
+    
+    // Send updated nodes and edges to the backend
+    sendDataTobackend(updatedNodes, updatedEdges);
+    
+    // Reset selectedNodeId after deletion
     setSelectedNodeId(null);
   };
-
-  const handleLabelChange = (event) => {
-    setNewLabel(event.target.value);
-  };
-
+  
   const applyLabelChange = () => {
-    setNodes((nds) =>
-      nds.map((node) =>
-        node.id === selectedNodeId
-          ? { ...node, data: { ...node.data, label: newLabel } }
-          : node
-      )
+    const updatedNodes = nodes.map((node) =>
+      node.id === selectedNodeId
+        ? { ...node, data: { ...node.data, label: newLabel } }
+        : node
     );
+  
     setNodes(updatedNodes);
-    updateLocalStorage(updatedNodes, edges);
+    sendDataTobackend(updatedNodes, edges);
+    
     setNewLabel("");
     setSelectedNodeId(null);
+  };
+  
+  const handleLabelChange = (event) => {
+    setNewLabel(event.target.value);
   };
 
   return (

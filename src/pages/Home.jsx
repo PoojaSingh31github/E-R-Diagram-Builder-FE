@@ -75,13 +75,13 @@ const Home = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
-                  to="/whiteSpace/path"
+                  to="/whiteSpace/template"
                   className="px-6 py-3 bg-[#7c294f] text-white text-lg font-semibold rounded-md shadow-md hover:bg-[#5d223c] transition"
                 >
                   Start Designing
                 </Link>
                 <Link
-                  to="/whiteSpace/template/path"
+                  to="/whiteSpace/template"
                   className="px-6 py-3 bg-[#FAC67A] text-gray-800 text-lg font-semibold rounded-md shadow-md hover:bg-[#cda15f] transition"
                 >
                   Sample Designing

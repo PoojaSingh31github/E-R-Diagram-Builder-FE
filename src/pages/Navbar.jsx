@@ -27,9 +27,7 @@ const Navbar = () => {
   const navItems = user
     ? [
         { name: "Dashboard", to: "/dashboard", icon: <FaUser /> },
-        { name: "Whitespace", to: "/whiteSpace/path", icon: <FaFileAlt /> },
-        { name: "Schema", to: "/schema/path", icon: <FaDatabase /> },
-        { name: "Template", to: "/whiteSpace/template/path", icon: <FaInfoCircle /> },
+        { name: "Template", to: "/whiteSpace/template", icon: <FaInfoCircle /> },
       ]
       : [
         { name: "Home", to: "/", icon: <FaHome /> },
@@ -50,14 +48,14 @@ const Navbar = () => {
   return (
     <nav className="w-full dark:bg-[#471953] dark:text-white py-2">
       <div className="max-w-7xl bg-transparent mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
+ 
         <Link to="/" className="flex items-center space-x-2 font-bold text-2xl">
-        {/* <img src={logo} alt="logo" className="w-20 h-20" /> */}
+   
         EntityCraft
        
         </Link>
 
-        {/* Menu Items */}
+
         <ul className="hidden md:flex space-x-6 items-center">
           {navItems.map((item) => (
             <li key={item.name}>

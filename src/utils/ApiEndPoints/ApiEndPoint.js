@@ -19,6 +19,7 @@ apiClient.interceptors.request.use(
 
 // Authentication APIs
 const loginUser = async(data) => {
+  console.log(data)
   try {
     const res = await apiClient.post("/users/login", data);
     return res;
@@ -29,7 +30,7 @@ const loginUser = async(data) => {
 
 const signupUser = async(data) =>{
   try {
-    const res = await apiClient.post("/users/signup", data);
+    const res = await apiClient.post("/users/", data);
     return res;
   } catch (error) {
     return error;
@@ -64,6 +65,7 @@ const getProjectById = async(id) => {
 };
 
 const updateProjectById = async(id, data) =>{
+
   try {
     const res = await apiClient.put(`/project/updateProject/${id}`, data);
     return res;
@@ -74,7 +76,7 @@ const updateProjectById = async(id, data) =>{
 
 const deleteProjectById = async(id) => {
   try {
-    const res = await apiClient.delete(`/project/deleteProject/${id}`);
+    const res = await apiClient.put(`/project/deleteProject/${id}`);
     return res;
   } catch (error) {
     return error;
@@ -84,7 +86,6 @@ const deleteProjectById = async(id) => {
 const getAllProjects = async() =>{
   try {
     const res = await apiClient.get("/project/getAllProjects");
-    console.log(res);
     return res;
   } catch (error) {
     return error;
