@@ -73,18 +73,13 @@ const Dashboard = () => {
   return (
     <>
 
-      <nav className="bg-blue-500 p-4 shadow-md">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-white text-xl font-bold">Dashboard</h1>
+          <h1 className="text-[#7c294f] text-xl font-bold">Dashboard</h1>
           <button
             onClick={() => setOpenModal(true)}
-            className="px-4 py-2 bg-white text-blue-500 font-semibold rounded-lg hover:bg-gray-200 focus:ring-2 focus:ring-blue-300"
+            className="px-4 py-2 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270]"
           >
             Create Project
           </button>
-        </div>
-      </nav>
-
       <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {projects && projects.map((project) => 
         
@@ -97,7 +92,7 @@ const Dashboard = () => {
 
       {openModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30">
-          <div className="bg-white w-11/12 max-w-lg rounded-lg p-6 shadow-lg relative">
+          <div className="bg-[#FAC67A] w-11/12 max-w-lg rounded-lg p-6 shadow-lg relative">
             
             <button
               onClick={() => setOpenModal(false)}
@@ -106,7 +101,7 @@ const Dashboard = () => {
               ✖
             </button>
 
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            <h2 className="text-xl font-semibold text-[#7c294f] mb-4">
               Add Project Details
             </h2>
 
@@ -124,7 +119,7 @@ const Dashboard = () => {
                   onChange={(e) => setProjectName(e.target.value)}
                   type="text"
                   id="projectName"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-[#471953] focus:border-[#471953] sm:text-sm"
                   placeholder="Enter project name"
                   required
                 />
@@ -143,7 +138,7 @@ const Dashboard = () => {
                   onChange={(e) => setDescription(e.target.value)}
                   id="description"
                   rows="3"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-[#471953] focus:border-[#471953] sm:text-sm"
                   placeholder="Enter project description"
                   required
                 ></textarea>
@@ -161,7 +156,7 @@ const Dashboard = () => {
                   value={projectType}
                   onChange={(e) => setProjectType(e.target.value)}
                   id="projectType"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-[#471953] focus:border-[#471953] sm:text-sm"
                   required
                 >
                   <option value="">Select project type</option>
@@ -174,7 +169,7 @@ const Dashboard = () => {
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:ring-2 focus:ring-green-300"
+                  className="px-6 py-2 bg-[#471953] text-white font-semibold rounded-lg hover:bg-[#612270] focus:ring-2 focus:ring-[#5b206a]"
                 >
                   Submit
                 </button>
