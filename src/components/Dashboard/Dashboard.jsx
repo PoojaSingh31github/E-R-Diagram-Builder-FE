@@ -172,8 +172,8 @@ const Dashboard = () => {
                   required
                 >
                   <option value="">Select project type</option>
-                  <option value="erd">E-R Diagram</option>
-                  <option value="sd">WhiteSpace Diagram</option>
+                  <option value="erd">Schema Database</option>
+                  <option value="sd">E-R Diagram</option>
                 </select>
               </div>
 
