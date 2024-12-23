@@ -38,7 +38,7 @@ const ProjectCard = ({ data, clickHandler, deleteHandler }) => {
         )}
 
         <p className="text-sm font-medium text-gray-600 bg-blue-50 px-3 py-1 rounded-lg self-start mt-4">
-          Type: {data.type === "sd" ? "White Space" : "Database Schema"}
+          Type: {data.type === "sd" ? "E-R diagram" : "Database Schema"}
         </p>
 
         <button
