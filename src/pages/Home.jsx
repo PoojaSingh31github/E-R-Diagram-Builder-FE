@@ -98,14 +98,14 @@ const Home = () => {
 
             {/* Video Content */}
             <div className="relative lg:w-1/2 flex items-center justify-center mt-8 lg:mt-0">
-              <video
-                className="w-full max-w-lg h-auto rounded-lg shadow-lg"
-                controls
-                poster="your-placeholder-image.jpg"
-              >
-                <source src="your-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <iframe
+                className="w-full max-w-lg rounded-lg shadow-lg  h-80"
+                src="https://www.youtube.com/embed/roHsoD81Scw"
+                title="YouTube video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
