@@ -1,8 +1,7 @@
 import { toast } from "react-toastify";
 import { getProjectById, updateProjectById } from "../../utils/ApiEndPoints/ApiEndPoint.js";
 import useSidebarData from "../../utils/hooks/useSidebarData.js";
-import Sidebar from "./SideBar/Sidebar.jsx";
-import WhiteSpace from "./WhiteSpace/WhiteSpace.jsx";
+import WhiteSpace from "../WhiteSpace/WhiteSpace.jsx";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 

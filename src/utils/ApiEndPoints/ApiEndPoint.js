@@ -24,7 +24,7 @@ const loginUser = async(data) => {
     const res = await apiClient.post("/users/login", data);
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -33,7 +33,7 @@ const signupUser = async(data) =>{
     const res = await apiClient.post("/users/", data);
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -42,7 +42,7 @@ const getUserDetails = async() => {
     const res = await apiClient.get(`/users/getUser`);
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -51,7 +51,7 @@ const createProject = async(data) => {
   const res = await apiClient.post("/project/", data)
   return res;
  } catch (error) {
-  return error;
+  throw error;
  }
 };
 
@@ -60,7 +60,7 @@ const getProjectById = async(id) => {
     const res = await apiClient.get(`/project/getProject/${id}`);
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -70,7 +70,7 @@ const updateProjectById = async(id, data) =>{
     const res = await apiClient.put(`/project/updateProject/${id}`, data);
     return res;
   } catch (error) {
-    return error;
+    throw error;
 }
 };
 
@@ -79,7 +79,7 @@ const deleteProjectById = async(id) => {
     const res = await apiClient.put(`/project/deleteProject/${id}`);
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -88,7 +88,7 @@ const getAllProjects = async() =>{
     const res = await apiClient.get("/project/getAllProjects");
     return res;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
